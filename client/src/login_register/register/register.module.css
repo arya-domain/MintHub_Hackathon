@@ -2,34 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
-.login_container {
+.signup_container {
 	width: 100%;
 	min-height: 100vh;
-	background-color: #000000;
+	background-image: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0), rgb(89, 12, 119), rgb(89, 12, 119), rgb(0, 0, 0), rgb(0, 0, 0));
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-image: linear-gradient(to bottom, rgb(0, 0, 0),rgb(0, 0, 0), rgb(89, 12, 119), rgb(89, 12, 119),rgb(0, 0, 0), rgb(0, 0, 0))
 }
 
-.login_form_container {
+.signup_form_container {
 	width: 900px;
 	height: 500px;
 	display: flex;
-	border-radius: 20px;
-	box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 30%),
+	border-radius: 10px;
+	box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%),
 		0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);
 }
 
 .left {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-image: linear-gradient(rgb(0, 0, 0), rgb(89, 12, 119), rgb(89, 12, 119));
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+.left h1 {
+	margin-top: 0;
+	color: white;
+	font-size: 35px;
+	align-self: center;
+}
+
+.right {
 	flex: 2;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	background-image: linear-gradient(rgb(0, 0, 0), rgb(89, 12, 119));
-	border-top-left-radius: 10px;
-	border-bottom-left-radius: 10px;
+	background-image: linear-gradient(rgb(0, 0, 0), rgb(89, 12, 119), rgb(0, 0, 0));
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
 }
 
 .form_container {
@@ -41,7 +58,6 @@
 .form_container h1 {
 	font-size: 40px;
 	margin-top: 0;
-	color: white;
 }
 
 .input {
@@ -50,10 +66,10 @@
 	width: 370px;
 	padding: 15px;
 	border-radius: 10px;
-	background-color: rgb(255, 255, 255);
+	background-color: #ffffff;
 	margin: 5px 0;
 	font-size: 14px;
-	box-shadow: 0px 0px 6px 1px #000000;
+	box-shadow: 0px 0px 6px 1px #3bb19b;
 }
 
 .error_msg {
@@ -67,43 +83,29 @@
 	text-align: center;
 }
 
-.right {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	background-image: linear-gradient( to bottom, rgb(0, 0, 0), rgb(89, 12, 119), rgb(89, 12, 119), rgb(0, 0, 0));
-	border-top-right-radius: 10px;
-	border-bottom-right-radius: 10px;
-}
-
-.right h1 {
-	margin-top: 0;
-	color: white;
-	font-size: 40px;
-	align-self: center;
-	font-weight: bold;
-	margin-bottom: 15px;
-	
-}
-
 .white_btn,
 .green_btn {
+	border: none;
 	outline: none;
 	padding: 12px 0;
 	color: white;
 	border-radius: 20px;
-	border-color: white;
 	width: 180px;
 	font-weight: bold;
 	font-size: 14px;
 	cursor: pointer;
-	background-image: linear-gradient(rgb(0, 0, 0), rgb(89, 12, 119));
 }
 
 .green_btn {
-	background-color: #a56bdf;
-	color: rgb(255, 255, 255);
+	background-image: linear-gradient(rgb(0, 0, 0), rgb(89, 12, 119));
+	color: #ffffff;
 	margin: 10px;
+}
+
+.password_toggle {
+	margin-left: -25px;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
 }

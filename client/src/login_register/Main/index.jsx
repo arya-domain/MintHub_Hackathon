@@ -1,6 +1,6 @@
 import styles from "./styles.module.css";
 
-const Main = () => {
+export const Main = () => {
 	const handleLogout = () => {
 		localStorage.removeItem("token");
 		window.location.reload();
@@ -21,4 +21,3 @@ const Main = () => {
 	);
 };
 
-export default Main;

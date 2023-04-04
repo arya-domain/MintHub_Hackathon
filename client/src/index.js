@@ -10,6 +10,7 @@ import { Body } from './Market/body';
 import Login from './login_register/Login';
 import { Signup } from './login_register/register/index.jsx';
 import CryptoDetails from './Market/context/CryptoDetails';
+import {Main} from "./login_register/Main/index.jsx"
 const router = createBrowserRouter([
   {
     path: "/",
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login/>,
+      },
+      {
+        path: "/Main",
+        element: <Main/>,
       },
       {
         path: "/register",

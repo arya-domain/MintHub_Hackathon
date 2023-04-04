@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import styles from "./styles.css";
+import styles from "./login.module.css";
 
 const Login = () => {
 	const [data, setData] = useState({ email: "", password: "" });
@@ -17,7 +17,7 @@ const Login = () => {
 			const url = "http://localhost:8080/api/auth";
 			const { data: res } = await axios.post(url, data);
 			localStorage.setItem("token", res.data);
-			window.location = "/market";
+			window.location = "/Main";
 		} catch (error) {
 			if (
 				error.response &&
@@ -54,21 +54,21 @@ const Login = () => {
 							className={styles.input}
 						/>
 						{error && <div className={styles.error_msg}>{error}</div>}
-						<button type="submit" className={styles.green_btn}>
+						<button type="submit" className={styles.green_botn}>
 							Login
 						</button>
-						<Link to =""><button type="button" className={styles.white_btn}>
+						<Link to=""><button type="button" className={styles.white_botn}>
 							Forgot Password?
 						</button></Link>
 					</form>
 				</div>
 				<div className={styles.right}>
 					<h1>New Here ?</h1>
-						<Link to ="/register">
-							<button type="button" className={styles.white_btn} >
-								Register
-							</button>
-						</Link>
+					<Link to="/register">
+						<button type="button" className={styles.white_botn} >
+							Register
+						</button>
+					</Link>
 				</div>
 			</div>
 		</div>

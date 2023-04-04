@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import styles from "./register.css";
+import styles from "./register.module.css";
 
 export const Signup = () => {
 	const [data, setData] = useState({
@@ -11,7 +11,7 @@ export const Signup = () => {
 		password: "",
 	});
 	const [error, setError] = useState("");
-	const [showPassword, setShowPassword] = useState(false);// state variable to toggle password visibility 
+	const [showPassword, setShowPassword] = useState(false);
 	const navigate = useNavigate();
 
 	const handleChange = ({ currentTarget: input }) => {
@@ -43,7 +43,7 @@ export const Signup = () => {
 		<div className={styles.signup_container}>
 			<div className={styles.signup_form_container}>
 				<div className={styles.left}>
-					<h1 className="font-bold py-2">Welcome Back</h1>
+					<h1 className="py-2 font-bold">Welcome Back</h1>
 					<Link to="/login">
 						<button type="button" className={styles.white_btn}>
 							Log in
