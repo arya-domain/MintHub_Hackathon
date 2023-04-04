@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import reportWebVitals from './reportWebVitals';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -9,7 +8,7 @@ import {
 import { Home } from './homepage/home';
 import { Body } from './Market/body';
 import Login from './login_register/Login';
-import Index from './login_register/register';
+import { Signup } from './login_register/register/index.jsx';
 import CryptoDetails from './Market/context/CryptoDetails';
 const router = createBrowserRouter([
   {
@@ -33,7 +32,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/register",
-        element: <Index/>,
+        element: <Signup />,
       },
     ],
   },

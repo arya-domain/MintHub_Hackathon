@@ -9,7 +9,7 @@ import { useLocation } from "react-router-dom";
 export const NAV = () => {
   const location = useLocation()
   return (
-    <div className="flex-auto header__wrapper bg-gradient-to-t from-black to-purple-400">
+    <div className="flex-auto header__wrapper bg-gradient-to-t from-black to-purple-500">
       <div className="header__logo">
         <a href="/"><img src={Logo} className="max-w-[10%] transform -scale-x-100 float-right" /></a>
       </div>
@@ -26,14 +26,7 @@ export const NAV = () => {
         <a href="/">PortFolio</a>
         <a href="/market">Market</a>
         <a href="/">Updates</a>
-        <Dropdown className="custom-dropdown ">
-          <Dropdown.Toggle variant="success" id="dropdown-basic "> Account </Dropdown.Toggle>
-          <Dropdown.Menu >
-            <Dropdown.Item href="/Login">Login</Dropdown.Item>
-            <Dropdown.Item href="/register">Sign Up</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Account Details</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
+        <a href="/Login">Login</a>
       </div>
     </div>
   );

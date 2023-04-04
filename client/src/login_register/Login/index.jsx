@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import styles from "./styles.module.css";
+import styles from "./styles.css";
 
 const Login = () => {
 	const [data, setData] = useState({ email: "", password: "" });
@@ -17,7 +17,7 @@ const Login = () => {
 			const url = "http://localhost:8080/api/auth";
 			const { data: res } = await axios.post(url, data);
 			localStorage.setItem("token", res.data);
-			window.location = "/";
+			window.location = "/market";
 		} catch (error) {
 			if (
 				error.response &&
@@ -34,7 +34,7 @@ const Login = () => {
 			<div className={styles.login_form_container}>
 				<div className={styles.left}>
 					<form className={styles.form_container} onSubmit={handleSubmit}>
-						<h1>Login to Your Account</h1>
+						<h1 className="py-3">Login to Your Account</h1>
 						<input
 							type="email"
 							placeholder="Email"
@@ -54,21 +54,21 @@ const Login = () => {
 							className={styles.input}
 						/>
 						{error && <div className={styles.error_msg}>{error}</div>}
+						<button type="submit" className={styles.green_btn}>
+							Login
+						</button>
 						<Link to =""><button type="button" className={styles.white_btn}>
 							Forgot Password?
 						</button></Link>
-						<button type="submit" className={styles.green_btn}>
-							Log in
-						</button>
 					</form>
 				</div>
 				<div className={styles.right}>
 					<h1>New Here ?</h1>
-					
-						<button type="button" className={styles.white_btn}>
-							Register
-						</button>
-					
+						<Link to ="/register">
+							<button type="button" className={styles.white_btn} >
+								Register
+							</button>
+						</Link>
 				</div>
 			</div>
 		</div>

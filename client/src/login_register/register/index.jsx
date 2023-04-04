@@ -1,9 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import styles from "./styles.module.css";
+import styles from "./register.css";
 
-const Signup = () => {
+export const Signup = () => {
 	const [data, setData] = useState({
 		firstName: "",
 		lastName: "",
@@ -43,7 +43,7 @@ const Signup = () => {
 		<div className={styles.signup_container}>
 			<div className={styles.signup_form_container}>
 				<div className={styles.left}>
-					<h1>Welcome Back</h1>
+					<h1 className="font-bold py-2">Welcome Back</h1>
 					<Link to="/login">
 						<button type="button" className={styles.white_btn}>
 							Log in
@@ -109,4 +109,3 @@ const Signup = () => {
 	);
 };
 
-export default Signup;
