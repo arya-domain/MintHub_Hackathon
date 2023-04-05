@@ -11,6 +11,16 @@ const socket = io('wss://stream.binance.com:9443/ws');
 export const Body = () => {
   const [marketData, setMarketData] = useState([]);
   const { nameLookup } = cryptoSymbol({})
+  const [rate, setRate] = useState(null);
+
+  useEffect(() => {
+    const url = 'https://api.exchangerate-api.com/v4/latest/USD';
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => setRate(data.rates.INR))
+      .catch(error => console.log(error));
+  }, []);
 
   useEffect(() => {
     axios.get('https://api.binance.com/api/v3/ticker/24hr')
@@ -89,7 +99,7 @@ export const Body = () => {
                           <Link to={`/market/${coinId}` } className="transition ease-in-out hover:font-bold hover:text-purple-800 hover:text-4xl duration-300">{data.symbol.toUpperCase()}</Link>
                       </td>
                       <td className='px-4 py-4 text-center'>{nameLookup(data.symbol)}</td>
-                      <td className='px-4 py-4 text-center'>₹ {(data.lastPrice * 82.12).toFixed(4)}</td>
+                      <td className='px-4 py-4 text-center'>₹ {(data.lastPrice * rate).toFixed(4)}</td>
                       <td className={`px-4 py-4 text-center ${data.priceChangePercent < 0 ? 'text-red-500' : 'text-green-500'}`}>{data.priceChangePercent}%</td>
                       <td className='px-4 py-4 text-center'>{data.volume}</td>
                       {/* <td>{coinId}</td> */}
