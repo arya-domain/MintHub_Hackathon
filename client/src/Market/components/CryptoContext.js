@@ -12,7 +12,7 @@ export const CryptoProvider = ({ children }) => {
 
   const [coinSearch, setCoinSearch] = useState("");
 
-  const [currency, setCurrency] = useState("usd");
+  const [currency, setCurrency] = useState("inr");
   const [sortBy, setSortBy] = useState("market_cap_desc");
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(250);

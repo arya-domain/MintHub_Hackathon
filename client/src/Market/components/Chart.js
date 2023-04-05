@@ -11,7 +11,8 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { useContext } from "react";
-import { CryptoContext } from "../components/CryptoContext";
+import { CryptoContext } from "./CryptoContext";
+import '../market.css'
 
 function CustomTooltip({ payload, label, active, currency = "usd" }) {
   if (active && payload && payload.length > 0) {
@@ -39,7 +40,7 @@ const ChartComponent = ({ data, currency, type }) => {
         <Line
           type="monotone"
           dataKey={type}
-          stroke="#14ffec"
+          stroke="#b95cdb"
           strokeWidth={"1px"}
         />
         <CartesianGrid stroke="#323232" />

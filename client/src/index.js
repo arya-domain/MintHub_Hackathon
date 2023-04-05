@@ -5,11 +5,12 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import { Dash } from './dashboard/dashboard';
 import { Home } from './homepage/home';
-import { Body } from './Market/body';
+import { Body } from './Market/market';
 import Login from './login_register/Login';
 import { Signup } from './login_register/register/index.jsx';
-import CryptoDetails from './Market/context/CryptoDetails';
+import CryptoDetails from './Market/components/CryptoDetails';
 import {Main} from "./login_register/Main/index.jsx"
 const router = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
         element: <Body/>,
         children:[
         {
-          path: ":coinid",
+          path: ":coinId",
           element: <CryptoDetails/>
         }
         ],
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login/>,
+      },
+      {
+        path: "/dashboard",
+        element: <Dash/>,
       },
       {
         path: "/Main",
