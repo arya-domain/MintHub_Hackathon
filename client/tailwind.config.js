@@ -5,11 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily:{ nunito : "Nunito"},
+      fontFamily: { nunito: "Nunito" },
     },
-    
-    
-    
+
   },
   plugins: [],
 }

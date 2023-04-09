@@ -9,8 +9,8 @@ export const Home = () => {
     <CryptoProvider>
       <div className="Home bg-gray-950">
         <NAV />
-        <Outlet/>
-        <Footer/>
+        <Outlet />
+        <Footer />
       </div>
     </CryptoProvider> 
   );

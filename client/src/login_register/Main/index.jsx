@@ -9,7 +9,7 @@ export const Main = () => {
 	return (
 		<div className={styles.main_container}>
 			<nav className={styles.navbar}>
-				<h1>⁕MintHub⁕</h1>
+				<h1></h1>
 				<button className={styles.white_btn} >
 					My Account
 				</button>
