@@ -52,7 +52,7 @@ export const Signup = () => {
 				</div>
 				<div className={styles.right}>
 					<form className={styles.form_container} onSubmit={handleSubmit}>
-						<h1>Create Account</h1>
+						<h1 className="text-white">Create Account</h1>
 						<input
 							type="text"
 							placeholder="First Name"

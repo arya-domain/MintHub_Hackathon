@@ -12,6 +12,9 @@ import Login from './login_register/Login';
 import { Signup } from './login_register/register/index.jsx';
 import CryptoDetails from './Market/components/CryptoDetails';
 import {Main} from "./login_register/Main/index.jsx"
+import { Transaction } from "./transaction/components/cr2cr"
+import { Fundout } from './transaction/components/fundout';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -43,6 +46,18 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Signup />,
+      },
+      {
+        path: "/cr2cr",
+        element: <Transaction />,
+      },
+      {
+        path: "/fundout",
+        element: <Fundout />,
+      },
+      {
+        path: "/cr2cr/details",
+        element: <Fundout />,
       },
     ],
   },
