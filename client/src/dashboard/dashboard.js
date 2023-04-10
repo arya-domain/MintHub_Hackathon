@@ -34,20 +34,20 @@ export const Dash = () => {
     };
 
     return (
-        <div className="bg-black " >
-            <div className='relative hover:bg-black w-screen h-screen my-2'>
+        <div className="bg-black my-0 " >
+            <div className='relative bg-black   h-screen '>
                 <h1 className='italic subpixel-antialiased my-2 bg-gradient-to-l from-purple-500 to-black  text-white w-1/2 text-5xl flex items-center justify-center text-center  h-screen font-extrabold '>
                     Haven't Joined Us Yet ? <br /> Register Now !! <br />
                 </h1>
                 <a href='/register'>
-                    <button className='text-white absolute top-1/2 left-2/3  rounded-lg text-6xl  hover:bg-gradient-to-r from-black via-purple-500 to-black  hover:scale-110 font-extrabold'>
+                    <button className='text-white absolute top-1/2 left-2/3  rounded-lg text-6xl  hover:bg-gradient-to-r from-black via-purple-500 to-black  hover:scale-110 font-extrabold '>
                         Register
                     </button>
                 </a>
             </div>
-            <div className='text-white bg-gradient-to-r from-black via-purple-500 to-black p-4 '>
+            <div className='text-white bg-gradient-to-r from-black via-purple-500 to-black p-4   '>
                 {articles.length > 0 && (
-                    <div className="d-flex justify-content-center align-items-center h-screen ">
+                    <div className="d-flex justify-content-center align-items-center  ">
                         <Card style={{ width: '900px', height: '600px' }} className='text-white bg-purple-800 border-1 border-black shadow-2xl shadow-black bg-opacity-10'>
                             <Card.Img variant="top" src={articles[activeIndex].image_url} />
                             <h1 className="text-center text-black font-bold text-4xl  ">Latest News</h1>

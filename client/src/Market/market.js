@@ -73,7 +73,7 @@ export const Body = () => {
   }, []);
 
   return (
-    <div className="text-2xl text-white bg-gray-950 ">
+    <div className="text-2xl text-white bg-gray-950   ">
       <table className='mx-auto space-x-10 space-y-10 table-auto' >
         <thead>
           <tr className='font-extrabold border-t-2 border-b-2 border-gray-50'>

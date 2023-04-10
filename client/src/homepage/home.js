@@ -8,7 +8,7 @@ export const Home = () => {
   return (
     <CryptoProvider>
       <div className="Home bg-gray-950">
-        <NAV />
+        <NAV  />
         <Outlet />
         <Footer />
       </div>

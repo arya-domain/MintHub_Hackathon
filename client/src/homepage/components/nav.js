@@ -9,7 +9,7 @@ import { Dropdown } from 'react-bootstrap';
 export const NAV = () => {
   const location = useLocation()
   return (
-    <div className="flex-auto header__wrapper bg-gradient-to-t from-black to-purple-500 ">
+    <div className="flex header__wrapper bg-gradient-to-t from-black to-purple-500  ">
       <div className="header__logo">
         <a href="/"><img src={Logo} alt="logo" className="max-w-[10%] transform -scale-x-100 float-right" /></a>
       </div>

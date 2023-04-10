@@ -14,6 +14,7 @@ import CryptoDetails from './Market/components/CryptoDetails';
 import {Main} from "./login_register/Main/index.jsx"
 import { Transaction } from "./transaction/components/cr2cr"
 import { Fundout } from './transaction/components/fundout';
+import { Details } from './transaction/components/details.js';
 
 const router = createBrowserRouter([
   {
@@ -56,8 +57,8 @@ const router = createBrowserRouter([
         element: <Fundout />,
       },
       {
-        path: "/cr2cr/details",
-        element: <Fundout />,
+        path: "cr2cr/details",
+        element: <Details />,
       },
     ],
   },

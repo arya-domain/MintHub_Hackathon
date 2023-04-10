@@ -1,13 +1,44 @@
-<div class="card text-center">
-  <div class="card-header">
-    News
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-  <div class="card-footer text-body-secondary">
-    2 days ago
-  </div>
-</div>
+import React, { useContext, useState } from 'react';
+import { FormDataContext } from './FormDataContext';
+
+const MyFormComponent = () => {
+  const { handleFormData } = useContext(FormDataContext);
+  const [formData, setFormData] = useState({});
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    handleFormData(formData);
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevState) => ({ ...prevState, [name]: value }));
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} />
+      <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} />
+      <button type="submit">Submit</button>
+    </form>
+  );
+};
+
+export default MyFormComponent;
+
+
+// dadadsdadddadadaddadd
+import React from 'react';
+import { FormDataProvider } from './FormDataContext';
+import MyFormComponent from './MyFormComponent';
+
+const App = () => {
+  return (
+    <FormDataProvider>
+      <MyFormComponent />
+    </FormDataProvider>
+  );
+};
+
+export default App;
+

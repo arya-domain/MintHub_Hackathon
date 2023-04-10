@@ -474,7 +474,7 @@ const CryptoDetails = () => {
         )}
       </div>
     </div>,
-    document.getElementById("model")
+    document.getElementById("root")
   );
 };
 
