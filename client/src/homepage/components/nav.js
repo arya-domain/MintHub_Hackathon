@@ -37,6 +37,7 @@ export const NAV = () => {
           <Dropdown.Menu className="text-white bg-opacity-100 bg-gradient-to-t from-black to-purple-500 active:bg-opacity-100 focus:bg-opacity-100">
             <Dropdown.Item href="/cr2cr" className="text-xl hover:opacity-100 hover:bg-transparent ml-2">C2C</Dropdown.Item>
             <Dropdown.Item href="/fundout" className="text-xl hover:opacity-100 hover:bg-transparent ml-2">Fund Out</Dropdown.Item>
+            <Dropdown.Item href="/orders" className="text-xl hover:opacity-100 hover:bg-transparent ml-2">Orders</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
         <a href="/Login" className={`hover:text-2xl active:text-2xl focus:text-2xl opacity-${location.pathname === "/login" ? '100' : '70'} hover:opacity-100`}>
