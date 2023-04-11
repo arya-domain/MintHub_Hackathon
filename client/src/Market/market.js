@@ -73,7 +73,7 @@ export const Body = () => {
   }, []);
 
   return (
-    <div className="text-2xl text-white bg-gray-950   ">
+    <div className="text-2xl text-white bg-gray-950 ">
       <table className='mx-auto space-x-10 space-y-10 table-auto' >
         <thead>
           <tr className='font-extrabold border-t-2 border-b-2 border-gray-50'>
@@ -96,7 +96,7 @@ export const Body = () => {
                         <img src={`https://assets.coincap.io/assets/icons/${data.symbol.toLowerCase()}@2x.png`} width={30} height={30} />
                       </td>
                       <td className='px-0 py-4 text-center'>
-                          <Link to={`/market/${coinId}` } className="transition ease-in-out hover:font-bold hover:text-purple-800 hover:text-4xl duration-300">{data.symbol.toUpperCase()}</Link>
+                          <Link to={`/market/${coinId}` } className="transition duration-300 ease-in-out hover:font-bold hover:text-purple-800 hover:text-4xl">{data.symbol.toUpperCase()}</Link>
                       </td>
                       <td className='px-4 py-4 text-center'>{nameLookup(data.symbol)}</td>
                       <td className='px-4 py-4 text-center'>₹ {(data.lastPrice * rate).toFixed(4)}</td>

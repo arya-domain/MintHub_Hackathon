@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from "./login.module.css";
 
-const Login = () => {
+export const Login = () => {
 	const [data, setData] = useState({ email: "", password: "" });
 	const [error, setError] = useState("");
 
@@ -20,7 +20,7 @@ const Login = () => {
 			localStorage.setItem("fname", res.fname);
 			localStorage.setItem("lname", res.lname);
 			localStorage.setItem("email", res.email);
-			window.location = "/Main";
+			window.location = "/dashboard";
 		} catch (error) {
 			if (
 				error.response &&
