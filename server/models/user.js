@@ -29,4 +29,5 @@ const validate = (data) => {
 	return schema.validate(data);
 };
 
+
 module.exports = { User, validate };

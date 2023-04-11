@@ -1,44 +1,20 @@
-import React, { useContext, useState } from 'react';
-import { FormDataContext } from './FormDataContext';
+const mongoose = require('mongoose')
+const mongoURI = 'mongodb://<!#@!#@>:"!@!@"@merncluster-shard-00-00.d1d4z.mongodb.net:27017,merncluster-shard-00-01.d1d4z.mongodb.net:27017,merncluster-shard-00-02.d1d4z.mongodb.net:27017/Customer?ssl=true&replicaSet=atlas-eusy5p-shard-0&authSource=admin&retryWrites=true&w=majority' // Customer change url to your db you created in atlas
+module.exports = function (callback) {
+    mongoose.connect(mongoURI, { useNewUrlParser: true,useUnifiedTopology: true }, async (err, result) => {
+  
+        if (err) console.log("---" + err)
+        else {
+            console.log("connected to mongo")
+            const foodCollection = await mongoose.connection.db.collection("user");
+            foodCollection.find({}).toArray(async function (err, data) {
+                const categoryCollection = await mongoose.connection.db.collection("Categories");
+                categoryCollection.find({}).toArray(async function (err, Catdata) {
+                    callback(err, data, Catdata);
 
-const MyFormComponent = () => {
-  const { handleFormData } = useContext(FormDataContext);
-  const [formData, setFormData] = useState({});
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    handleFormData(formData);
-  };
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevState) => ({ ...prevState, [name]: value }));
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} />
-      <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} />
-      <button type="submit">Submit</button>
-    </form>
-  );
+                })
+            }
+            );
+        }
+    })
 };
-
-export default MyFormComponent;
-
-
-// dadadsdadddadadaddadd
-import React from 'react';
-import { FormDataProvider } from './FormDataContext';
-import MyFormComponent from './MyFormComponent';
-
-const App = () => {
-  return (
-    <FormDataProvider>
-      <MyFormComponent />
-    </FormDataProvider>
-  );
-};
-
-export default App;
-

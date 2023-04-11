@@ -35,9 +35,7 @@ export const Signup = () => {
 			}
 		}
 	};
-	const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
-    };
+	
 
 	return (
 		<div className={styles.signup_container}>
@@ -52,7 +50,7 @@ export const Signup = () => {
 				</div>
 				<div className={styles.right}>
 					<form className={styles.form_container} onSubmit={handleSubmit}>
-						<h1 className="text-white">Create Account</h1>
+						<h1 className="py-2 font-bold text-white">Create Account</h1>
 						<input
 							type="text"
 							placeholder="First Name"
@@ -94,7 +92,7 @@ export const Signup = () => {
                             type="button"
                             className={styles.password_toggle}
                             onClick={() => setShowPassword(!showPassword)}>
-                            {showPassword ? "👁️" : "❌"}
+                            {showPassword ? "❌" : "👁️"}
                         </button>
 						</div>
 						

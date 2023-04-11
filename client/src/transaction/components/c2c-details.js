@@ -44,22 +44,16 @@ export const Details = (props) => {
   }
 
   useEffect(() => {
-    setPayable({ ...payable, amt: isNaN(payable.amt) ? "" : send });
+    setPayable({ ...payable, amt: send });
   }, [send]);
 
   useEffect(() => {
     const sendAmount = parseFloat(send);
-    const value1 = (sendAmount * payable.charge/100) + sendAmount;
+    const value1 = (sendAmount * payable.charge / 100) + sendAmount;
     const value2 = sendAmount + (lowercharge * 200);
-    if(value1>value2)
-    {
-      setPayable({...payable, total: value2})
-    }
-    else
-    {
-      setPayable({...payable, total: value1})
-    }
-  },[send])
+    if (value1 > value2) { setPayable({ ...payable, total: value2 }) }
+    else { setPayable({ ...payable, total: value1 }) }
+  }, [send])
 
 
   return (
@@ -161,7 +155,7 @@ export const Details = (props) => {
                   <tr>
                     <td class="py-2 px-4 font-bold text-2xl ">Bank Name </td>
                     <td class="py-2 px-4 font-bold text-2xl ">:</td>
-                    <td class="py-2 px-4 font-bold text-2xl">{receiver.bankname? receiver.bankname : "NaN"}</td>
+                    <td class="py-2 px-4 font-bold text-2xl">{receiver.bankname ? receiver.bankname : "NaN"}</td>
                   </tr>
                   <tr>
                     <td class="py-2 px-4 font-bold text-2xl">IFSC Code </td>
@@ -186,13 +180,13 @@ export const Details = (props) => {
                   <tr>
                     <td class="py-2 px-4 font-bold text-2xl">Sending Amount</td>
                     <td class="py-2 px-4 font-bold text-2xl">:</td>
-                    <td class="py-2 px-4 font-bold text-2xl">{crsymbol[data.scr]} {payable.amt ? payable.amt : "NaN"}</td>
+                    <td class="py-2 px-4 font-bold text-2xl">{crsymbol[data.scr]}{send ? send : "NaN"}</td>
                   </tr>
                   <tr>
                     <td class="pt-2 px-4 font-bold text-2xl ">
-                      Service Charge <br/> 
-                    <small className="text-sm pt-0 mt-0 text-center" >Whichever Is Lower</small></td>
-                    
+                      Service Charge <br />
+                      <small className="text-sm pt-0 mt-0 text-center" >Whichever Is Lower</small></td>
+
                     <td class="py-2 px-4 font-bold text-2xl">:</td>
                     <td class="py-2 px-4 font-bold text-2xl">{payable.charge}% OR {crsymbol[data.scr]}{lowercharge * 200}</td>
                   </tr>
@@ -208,7 +202,7 @@ export const Details = (props) => {
           </Col>
         </Row>
       </Container>
-      <button type="button" className="btn bg-black text-white border-white py-2 my-4 px-5 text-4xl text-justify hover:bg-gradient-to-t from-black to-purple-700 hover:scale-110 ease-in-out delay-200">Pay</button>
+      <button type="button" className="btn bg-black text-white border-white py-2 my-4 px-5 text-4xl text-justify hover:bg-gradient-to-t from-black to-purple-700 hover:scale-110 ease-in-out delay-200">Pay </button>
     </div>
   );
 };
