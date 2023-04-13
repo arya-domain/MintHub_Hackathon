@@ -42,19 +42,14 @@ export const NAV = () => {
           </div>
         </Col>
           <Col className="text-2xl align-baseline duration-300 ease-in-out rounded-md header__menuItems">
-
-            <Col><Link to="/dashboard" className={`hover:text-2xl active:text-2xl focus:text-2xl opacity-${location.pathname === "/dashboard" ? '100' : '70'} hover:opacity-100`}>
-              Dashboard</Link></Col>
-            <Col><Link to="/" className={`hover:text-2xl active:text-2xl focus:text-2xl opacity-${location.pathname === "/portfolio" ? '100' : '70'} hover:opacity-100`}>
-              PortFolio</Link></Col>
-            <Col><Link to="/market" className={`hover:text-2xl active:text-2xl focus:text-2xl opacity-${location.pathname === "/market" ? '100' : '70'} hover:opacity-100`}>
-              Market</Link></Col>
-            <Col><Link to="/" className={`hover:text-2xl active:text-2xl focus:text-2xl opacity-${location.pathname === "/updates" ? '100' : '70'} hover:opacity-100`}>
-              Updates</Link></Col>
+            <Link to="/dashboard" className={`hover:text-2xl active:text-2xl focus:text-2xl opacity-${location.pathname === "/dashboard" ? '100' : '70'} hover:opacity-100`}>
+              Dashboard</Link>
+            <Link to="/market" className={`hover:text-2xl active:text-2xl focus:text-2xl opacity-${location.pathname === "/market" ? '100' : '70'} hover:opacity-100`}>
+              Market</Link>
             <Dropdown className="ease-in-out delay-300 ">
-              <Col><Dropdown.Toggle className="py-0 text-[23px] font-bold text-white  bg-opacity-0 opacity-70 border-0 hover:bg-transparent active:bg-transparent focus:bg-transparent hover:text-2xl btnid hover:opacity-100" >
+              <Dropdown.Toggle className="py-0 text-[23px] font-bold text-white  bg-opacity-0 opacity-70 border-0 hover:bg-transparent active:bg-transparent focus:bg-transparent hover:text-2xl btnid hover:opacity-100" >
                 Transactions
-              </Dropdown.Toggle></Col>
+              </Dropdown.Toggle>
               <Dropdown.Menu className="text-white bg-opacity-100 bg-gradient-to-t from-black to-purple-500 active:bg-opacity-100 focus:bg-opacity-100">
                 <Dropdown.Item href="/cr2cr" className="ml-2 text-xl hover:opacity-100 hover:bg-transparent">C2C</Dropdown.Item>
                 <Dropdown.Item href="/fundout" className="ml-2 text-xl hover:opacity-100 hover:bg-transparent">Fund Out</Dropdown.Item>
@@ -77,8 +72,6 @@ export const NAV = () => {
                   Login</Link>
               )}
           </Col>
-
-        
       </Row>
     </div >
   );
