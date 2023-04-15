@@ -4,10 +4,9 @@ import Web3 from "web3";
 
 export const Fundout = () => {
   const [balance, setBalance] = useState(null);
-  const [cryptoName, setCryptoName] = useState("ETH");
   const [connected, setConnected] = useState(false);
-  const [receiver, setData] = useState({ account_no: "", bankname: "", ifsc: "", address: "" })
-  const [currency, setCurr] = useState();
+  const [receiver, setData] = useState({ account_no: "", bankname: "", ifsc: "", address: "", symbol: "", symval: "" })
+  const [currency, setCurr] = useState("INR");
   const crval = { INR: 100, USD: 200, EUR: 300, JPY: 400, AED: 500 }
 
   const handleSetChange = (event) => {
@@ -15,7 +14,7 @@ export const Fundout = () => {
     setData((prevData) => ({ ...prevData, [name]: value }));
     setCurr(value);
   };
-  
+
 
   useEffect(() => {
     if (connected) {
@@ -53,25 +52,20 @@ export const Fundout = () => {
     setBalance(null);
   };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setData((prevData) => ({ ...prevData, [name]: value }));
-  };
-
   return (
     <div className="text-2xl text-white bg-black ">
-      <div className="mr-6 mb-6 text-right">
-        <h1> {balance} : {cryptoName} Balance</h1>
-        <button onClick={connected ? disconnectWallet : connectWallet} className="text-[20px] font-bold border-[1px] border-white rounded-lg px-2 hover:bg-gradient-to-t from-black to-purple-600 focus:bg-gradient-to-t">
-          {connected ? "Connected" : "Connect To Wallet"}
-        </button>
-      </div>
       <div class="row">
         <div class="col-sm-4">
           <div class="card ml-6 mr-2">
-            <div class="card-body bg-black border-white border-2 rounded-lg">
+            <div class="card-body bg-black border-white border-2 rounded-lg h-[600px] bg-gradient-to-b from-black to-purple-600">
+              <div className=" py-2">
+                <h1> Balance : {balance}</h1>
+                <button onClick={connected ? disconnectWallet : connectWallet} className="text-[16px] font-bold border-[1px] border-white rounded-lg px-2 hover:bg-gradient-to-t from-black to-purple-600 focus:bg-gradient-to-t">
+                  {connected ? "Connected" : "Connect To Wallet"}
+                </button>
+              </div>
               <div>
-                <label className="my-1  px-0" htmlFor="sender-currency">
+                <label className="my-1 " htmlFor="sender-currency">
                   Receiving Currency
                 </label>
                 <select
@@ -81,26 +75,24 @@ export const Fundout = () => {
                   name="scr"
                   onChange={handleSetChange}
                 >
-                  <option value="INR" >INR</option>
+                  <option value="INR">INR</option>
                   <option value="JPY">JPY</option>
                   <option value="USD">USD</option>
                   <option value="AED">AED</option>
                   <option value="EUR">EUR</option>
                 </select>
                 <p>MAX Available Amount : {crval[currency]}</p>
+                <p>Crypto Selected : {receiver.symbol}</p>
+                <p>Amount : {crval[currency]}</p>
+                <p class="card-text">gdg</p>
               </div>
-              <p class="card-text">Coin 1</p>
-              <p class="card-text">Coin 2</p>
-              <p class="card-text">Coin 3</p>
-              <p class="card-text">Coin 4</p>
-              <p class="card-text">Coin 5</p>
             </div>
           </div>
         </div>
         <div class="col-sm-8">
           <div class="card ml-2 mr-6">
             <div class="card-body bg-black border-white border-2 rounded-lg">
-              <h5 class="card-title">Special title treatment</h5>
+              <h5 class="card-title text-center text-5xl font-extrabold bg-clip-text bg-gradient-to-t from-gray-200 to-purple-800 text-transparent">Fund Out</h5>
               <div className="space-y-2 mx-40">
                 <label className="py-2 px-4 font-bold text-2xl">Your Bank Name </label>
                 <input
@@ -153,6 +145,33 @@ export const Fundout = () => {
                   aria-describedby="basic-addon1"
                   name="address"
                   onInput={event => event.target.value = event.target.value.toUpperCase()}
+                  required
+                />
+              </div>
+              <div className="space-y-2 mx-40">
+                <label className="py-2 px-4 font-bold text-2xl">Crypto Id For Funding Out</label>
+                <input
+                  value={receiver.symbol}
+                  onChange={handleSetChange}
+                  type="text"
+                  className="form-control"
+                  placeholder="Cypto Id"
+                  aria-describedby="basic-addon1"
+                  name="symbol"
+                  onInput={event => event.target.value = event.target.value.toUpperCase()}
+                  required
+                />
+              </div>
+              <div className="space-y-2 mx-40">
+                <label className="py-2 px-4 font-bold text-2xl">Amount Of Crytpo To FundOut</label>
+                <input
+                  value={receiver.symval}
+                  onChange={handleSetChange}
+                  type="number"
+                  className="form-control"
+                  placeholder="Cypto Amount"
+                  aria-describedby="basic-addon1"
+                  name="symval"
                   required
                 />
               </div>

@@ -2,18 +2,44 @@ import { useLocation } from "react-router";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 export const Details = (props) => {
+  const email =localStorage.getItem("email")
+
   const location = useLocation();
   const { data } = location.state;
-  const [send, setSend] = useState("");
+  const [send, setSend] = useState();
   const [rate, setRate] = useState(null);
   const [receiver, setData] = useState({ account_no: "", bankname: "", ifsc: "", address: "" })
-  const [payable, setPayable] = useState({ amt: "NaN", charge: 2, total: "" });
+  const [payable, setPayable] = useState({ sending_amt: "", charge: 2, total: "", email : email });
   const [lowercharge, setLowerCharge] = useState(null);
   const sendercr = data.scr.toUpperCase();
   const crsymbol = { INR: '₹', USD: "$", EUR: "€", JPY: "¥", AED: "د.إ " }
+  const navigate = useNavigate();
+  const [error, setError] = useState("");
+
+  const allValues = {   ...receiver,   ...payable,  };
+
+  const handleSubmit = async (e) => {
+		e.preventDefault();
+		try {
+			const url = "http://localhost:8080/api/c2c_order";
+			const { data : res } = await axios.post(url, allValues);
+			navigate("/market");
+			console.log(res.message);
+		} catch (error) {
+			if (
+				error.response &&
+				error.response.status >= 400 &&
+				error.response.status <= 500
+			) {
+				setError(error.response.data.message);
+			}
+		}
+	};
 
   useEffect(() => {
     const url = `https://api.exchangerate-api.com/v4/latest/INR`;
@@ -36,6 +62,7 @@ export const Details = (props) => {
   const handleInputChange = (event) => {
     const value = parseFloat(event.target.value);
     setSend(isNaN(value) ? "" : value);
+    setPayable({ ...payable, sending_amt: value});
   }
 
   const handleSetChange = (event) => {
@@ -43,9 +70,7 @@ export const Details = (props) => {
     setData({ ...receiver, [name]: value });
   }
 
-  useEffect(() => {
-    setPayable({ ...payable, amt: send });
-  }, [send]);
+
 
   useEffect(() => {
     const sendAmount = parseFloat(send);
@@ -54,7 +79,6 @@ export const Details = (props) => {
     if (value1 > value2) { setPayable({ ...payable, total: value2 }) }
     else { setPayable({ ...payable, total: value1 }) }
   }, [send])
-
 
   return (
     <div className="text-white text-xl text-center  justify-contents-center align-items-center bg-gradient-to-l from-black to-purple-700 pt-4">
@@ -180,7 +204,7 @@ export const Details = (props) => {
                   <tr>
                     <td class="py-2 px-4 font-bold text-2xl">Sending Amount</td>
                     <td class="py-2 px-4 font-bold text-2xl">:</td>
-                    <td class="py-2 px-4 font-bold text-2xl">{crsymbol[data.scr]}{send ? send : "NaN"}</td>
+                    <td class="py-2 px-4 font-bold text-2xl">{crsymbol[data.scr]}{payable.sending_amt ? payable.sending_amt : "NaN" }</td>
                   </tr>
                   <tr>
                     <td class="pt-2 px-4 font-bold text-2xl ">
@@ -202,7 +226,7 @@ export const Details = (props) => {
           </Col>
         </Row>
       </Container>
-      <button type="button" className="btn bg-black text-white border-white py-2 my-4 px-5 text-4xl text-justify hover:bg-gradient-to-t from-black to-purple-700 hover:scale-110 ease-in-out delay-200">Pay </button>
+      <button type="button" className="btn bg-black text-white border-white py-2 my-4 px-5 text-4xl text-justify hover:bg-gradient-to-t from-black to-purple-700 hover:scale-110 ease-in-out delay-200" onClick={handleSubmit}>Pay </button>
     </div>
   );
 };

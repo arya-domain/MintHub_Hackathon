@@ -3,8 +3,10 @@ const { User } = require("../models/user");
 const bcrypt = require("bcrypt");
 const Joi = require("joi");
 const fetchuser = require("../middleware/fetchuser");
+const fetchuser = require("../middleware/fetchuser");
 
 router.post("/login", async (req, res) => {
+	//Login
 	try {
 		const { error } = validate(req.body);
 		if (error)
@@ -23,13 +25,14 @@ router.post("/login", async (req, res) => {
 
 		const token = user.generateAuthToken();
 		res.status(200).send({ authtoken: token, fname: user.firstName, lname: user.lastName, email: user.email , message: "logged in successfully" });
+		res.status(200).send({ authtoken: token, fname: user.firstName, lname: user.lastName, email: user.email , message: "logged in successfully" });
 		} catch (error) {
 		res.status(500).send({ message: "Internal Server Error" });
 	}
 });
 
 router.post("/getuser", fetchuser,  async (req, res) => {
-
+	//Get user Details
 	try {
 	  const userId = req.user;
 	  const user = await User.findById(userId).select("-password")
@@ -47,6 +50,8 @@ const validate = (data) => {
 	});
 	return schema.validate(data);
 };
+
+
 
 
 
