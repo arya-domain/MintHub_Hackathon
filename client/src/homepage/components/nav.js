@@ -63,8 +63,8 @@ export const NAV = () => {
                   {fname} {lname}
                 </Dropdown.Toggle>
                 <Dropdown.Menu className="text-white bg-opacity-100 opacity-100 bg-gradient-to-t from-black to-purple-500 active:bg-opacity-100 focus:bg-opacity-100">
-                  <Link to="/dashboard"><Dropdown.Item className="ml-2 text-white hover:bg-transparent hover:opacity-100 opacity-70">Account Details</Dropdown.Item></Link>
-                  <Link><Dropdown.Item className="ml-2 text-white hover:opacity-100 hover:bg-transparent" onClick={handleLogout}>Logout</Dropdown.Item></Link>
+                  <Dropdown.Item className="ml-2 text-white hover:bg-transparent hover:opacity-100 opacity-70" href="/dashboard">Account Details</Dropdown.Item>
+                  <Dropdown.Item className="ml-2 text-white hover:opacity-100 hover:bg-transparent" onClick={handleLogout}>Logout</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             ) : (
