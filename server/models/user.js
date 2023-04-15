@@ -52,7 +52,7 @@ const ovalidate = (order) => {
 		bankname: Joi.string().required().label("bankname"),
 		ifsc: Joi.string().required().label("ifsc"),
 		address: Joi.string().required().label("address"),
-		email: Joi.string().email().required().label("Email"),
+		email: Joi.string().email().required().label("email"),
 	});
   return schema.validate(order);
 };
