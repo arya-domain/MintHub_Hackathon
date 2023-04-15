@@ -3,7 +3,6 @@ const { User } = require("../models/user");
 const bcrypt = require("bcrypt");
 const Joi = require("joi");
 const fetchuser = require("../middleware/fetchuser");
-const fetchuser = require("../middleware/fetchuser");
 
 router.post("/login", async (req, res) => {
 	//Login
