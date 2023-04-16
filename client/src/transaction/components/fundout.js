@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from "react";
 import Web3 from "web3";
 
-
 export const Fundout = () => {
   const [balance, setBalance] = useState(null);
   const [connected, setConnected] = useState(false);
-  const [receiver, setData] = useState({ account_no: "", bankname: "", ifsc: "", address: "", symbol: "", symval: "" })
+  const [receiver, setData] = useState({ account_no: "", bankname: "", ifsc: "", address: "", symval: "", symbol: "" })
   const [currency, setCurr] = useState("INR");
   const crval = { INR: 100, USD: 200, EUR: 300, JPY: 400, AED: 500 }
 
   const handleSetChange = (event) => {
     const { name, value } = event.target;
     setData((prevData) => ({ ...prevData, [name]: value }));
-    setCurr(value);
   };
+  const handleSetChange2 = (event) => {
+    const { name, value } = event.target;
+    setCurr(value);
+  }
 
-
+  // Metamask wallet connection portion start
   useEffect(() => {
     if (connected) {
       const getBalance = async () => {
@@ -51,6 +53,7 @@ export const Fundout = () => {
     setConnected(false);
     setBalance(null);
   };
+  // Metamask wallet connection portion end
 
   return (
     <div className="text-2xl text-white bg-black ">
@@ -64,16 +67,16 @@ export const Fundout = () => {
                   {connected ? "Connected" : "Connect To Wallet"}
                 </button>
               </div>
-              <div>
+              <div className="space-y-3">
                 <label className="my-1 " htmlFor="sender-currency">
-                  Receiving Currency
+                  Receiving Currency :
                 </label>
                 <select
                   value={currency}
-                  className="custom-select my-1 mr-sm-2 rounded-md bg-gray-700 px-5 py-2 ml-6 text-xl"
+                  className="custom-select my-1 mr-sm-2 rounded-md bg-gray-700 px-4 py-2 ml-6 text-xl"
                   id="sender-currency"
                   name="scr"
-                  onChange={handleSetChange}
+                  onChange={handleSetChange2}
                 >
                   <option value="INR">INR</option>
                   <option value="JPY">JPY</option>
@@ -81,10 +84,9 @@ export const Fundout = () => {
                   <option value="AED">AED</option>
                   <option value="EUR">EUR</option>
                 </select>
-                <p>MAX Available Amount : {crval[currency]}</p>
+                <p>Available Amount : {crval[currency]}</p>
                 <p>Crypto Selected : {receiver.symbol}</p>
-                <p>Amount : {crval[currency]}</p>
-                <p class="card-text">gdg</p>
+                <p>Crypto Amount : {receiver.symval}</p>
               </div>
             </div>
           </div>
@@ -150,20 +152,22 @@ export const Fundout = () => {
               </div>
               <div className="space-y-2 mx-40">
                 <label className="py-2 px-4 font-bold text-2xl">Crypto Id For Funding Out</label>
-                <input
+                <select
                   value={receiver.symbol}
-                  onChange={handleSetChange}
-                  type="text"
-                  className="form-control"
-                  placeholder="Cypto Id"
-                  aria-describedby="basic-addon1"
+                  className="custom-select my-3 mr-sm-2 rounded-md bg-gray-700 px-4 py-1  ml-6 text-xl"
+                  id="symbol"
                   name="symbol"
-                  onInput={event => event.target.value = event.target.value.toUpperCase()}
-                  required
-                />
+                  onChange={handleSetChange}
+                >
+                  <option value="BTC">BTC</option>
+                  <option value="ETH">ETH</option>
+                  <option value="USDT">USDT</option>
+                </select>
               </div>
               <div className="space-y-2 mx-40">
-                <label className="py-2 px-4 font-bold text-2xl">Amount Of Crytpo To FundOut</label>
+                <label className="py-2 px-4 font-bold text-2xl">
+                  Amount Of Crytpo To FundOut
+                </label>
                 <input
                   value={receiver.symval}
                   onChange={handleSetChange}

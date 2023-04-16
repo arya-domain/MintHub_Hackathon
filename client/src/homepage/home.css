@@ -23,16 +23,6 @@
 }
 
 
-.header__search {
-
-  display: flex;
-  align-items: center;
-  background-color: black;
-  opacity: 0.5;
-  height: 30px;
-  width: 300px;
-}
-
 
 .header__menuItems a {
   font-weight: bold;

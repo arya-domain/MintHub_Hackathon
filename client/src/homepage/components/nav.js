@@ -24,7 +24,7 @@ export const NAV = () => {
 
   return (
     <div >
-      <Row className="header__wrapper flex bg-gradient-to-t from-black to-purple-500 ">
+      <Row className="header__wrapper flex bg-gradient-to-t from-black to-purple-500  mr-0">
         <Col>
           <div className="header__logo">
             <Link to="/"><img src={Logo} alt="logo" className="max-w-[10%] transform -scale-x-100 float-right" /></Link>
