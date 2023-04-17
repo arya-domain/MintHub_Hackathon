@@ -86,7 +86,7 @@ export const Fundout = () => {
     <div className="text-2xl text-white bg-gradient-to-b from-black via-purple-600 to-black  mr-0 ">
       <div class="row mr-0 py-[13.5%]">
         <div class="col-sm-4 ">
-          <div class="card ml-6 mr-2 h-[350px] ">
+          <div class="card ml-6 mr-0 h-[350px] ">
             <div class="card-body  border-white border-2 rounded-lg  bg-gradient-to-b from-black to-purple-600 ">
               <h5 class="card-title text-center text-5xl font-extrabold bg-clip-text bg-gradient-to-t from-gray-200 to-purple-800 text-transparent">Details</h5>
               <table>
@@ -111,7 +111,7 @@ export const Fundout = () => {
                     </td>
                   </tr>
                   <tr>
-                    <td>Available Amount :</td>
+                    <td>Available Amount (INR):</td>
                     <td className="mx-2">{crval[currency]}</td>
                   </tr>
                   <tr>
@@ -119,7 +119,7 @@ export const Fundout = () => {
                     <td className="mx-2">{receiver.symbol}</td>
                   </tr>
                   <tr>
-                    <td>Crypto Amount :</td>
+                    <td className="whitespace-nowarp">Crypto Value (INR) :</td>
                     <td className="mx-2">{(receiver.symval * prices[currency]).toFixed(2)}</td>
                   </tr>
                   <tr>
