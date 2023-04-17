@@ -6,6 +6,7 @@ import './market.css'
 import { Link, Outlet } from 'react-router-dom';
 import coins from './assets/coins.json';
 
+
 const socket = io('wss://stream.binance.com:9443/ws');
 
 export const Body = () => {
@@ -32,8 +33,8 @@ export const Body = () => {
         volume: Number(item.volume).toFixed(2)
       })).sort((a, b) => b.lastPrice - a.lastPrice))) // Sort by lastPrice in descending order
       .catch(error => console.log(error));
-    
-  
+
+
     socket.on('message', message => {
       const data = JSON.parse(message);
       setMarketData(prevMarketData => {
@@ -51,7 +52,7 @@ export const Body = () => {
         return prevMarketData;
       });
     });
-    
+
     // Reload market data every 10 seconds
     const intervalId = setInterval(() => {
       axios.get('https://api.binance.com/api/v3/ticker/24hr')
@@ -61,7 +62,6 @@ export const Body = () => {
           lastPrice: Number(item.lastPrice).toFixed(4),
           priceChangePercent: Number(item.priceChangePercent).toFixed(2),
           volume: Number(item.volume).toFixed(2),
-          // name: cryptoNames[item.symbol]
         })).sort((a, b) => b.lastPrice - a.lastPrice))) // Sort by lastPrice in descending order
         .catch(error => console.log(error));
     }, 10000);
@@ -71,6 +71,7 @@ export const Body = () => {
       socket.off('message');
     };
   }, []);
+
 
   return (
     <div className="text-2xl text-white bg-gray-950 ">
@@ -83,32 +84,32 @@ export const Body = () => {
             <th class="px-4 py-2 text-center" >Last Price</th>
             <th class="px-4 py-2 text-center" >Price Change</th>
             <th class="px-4 py-2 text-center">Volume</th>
-            {/* <th></th> */}
           </tr>
         </thead>
         <tbody>
-            {marketData.map(data => {
-                const coin = coins.find(i => i.symbol === data.symbol);
-                const coinId = coin ? coin.id : null;
-                return (
-                    <tr className='border-b-2 border-gray-50'>
-                      <td className='py-4 pl-4 text-center'>
-                        <img src={`https://assets.coincap.io/assets/icons/${data.symbol.toLowerCase()}@2x.png`} width={30} height={30} />
-                      </td>
-                      <td className='px-0 py-4 text-center'>
-                          <Link to={`/market/${coinId}` } className="transition duration-300 ease-in-out hover:font-bold hover:text-purple-800 hover:text-4xl">{data.symbol.toUpperCase()}</Link>
-                      </td>
-                      <td className='px-4 py-4 text-center'>{nameLookup(data.symbol)}</td>
-                      <td className='px-4 py-4 text-center'>₹ {(data.lastPrice * rate).toFixed(4)}</td>
-                      <td className={`px-4 py-4 text-center ${data.priceChangePercent < 0 ? 'text-red-500' : 'text-green-500'}`}>{data.priceChangePercent}%</td>
-                      <td className='px-4 py-4 text-center'>{data.volume}</td>
-                      {/* <td>{coinId}</td> */}
-                    </tr>
-                );
-            })}
+          {marketData.map(data => {
+            const marketjson =  JSON.stringify(marketData);
+            localStorage.setItem("marketjson", marketjson);
+            const coin = coins.find(i => i.symbol === data.symbol);
+            const coinId = coin ? coin.id : null;
+            return (
+              <tr className='border-b-2 border-gray-50'>
+                <td className='py-4 pl-4 text-center'>
+                  <img src={`https://assets.coincap.io/assets/icons/${data.symbol.toLowerCase()}@2x.png`} width={30} height={30} />
+                </td>
+                <td className='px-0 py-4 text-center'>
+                  <Link to={`/market/${coinId}`} className="transition duration-300 ease-in-out hover:font-bold hover:text-purple-800 hover:text-4xl">{data.symbol.toUpperCase()}</Link>
+                </td>
+                <td className='px-4 py-4 text-center'>{nameLookup(data.symbol)}</td>
+                <td className='px-4 py-4 text-center'>₹ {(data.lastPrice * rate).toFixed(4)}</td>
+                <td className={`px-4 py-4 text-center ${data.priceChangePercent < 0 ? 'text-red-500' : 'text-green-500'}`}>{data.priceChangePercent}%</td>
+                <td className='px-4 py-4 text-center'>{data.volume}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
-      <Outlet/>
+      <Outlet />
     </div>
   );
 }

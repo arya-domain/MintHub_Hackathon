@@ -15,7 +15,8 @@ import { Transaction } from "./transaction/components/cr2cr"
 import { Fundout } from './transaction/components/fundout';
 import { Details } from './transaction/components/c2c-details.js';
 import { Update } from './updates/update';
- 
+ import { Orders } from './transaction/components/orders';
+
 const router = createBrowserRouter([
   {  
       path: "/",
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
         {
           path: "cr2cr/details",
           element: <Details />,
+        },
+        {
+          path: "/orders",
+          element: <Orders/>,
         },
       ],
     },

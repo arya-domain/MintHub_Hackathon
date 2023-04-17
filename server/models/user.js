@@ -10,6 +10,18 @@ const userSchema = new mongoose.Schema({
 	password: { type: String, required: true },
 });
 
+const orderSchema = new mongoose.Schema({
+	  sending_amt: { type: Number, required: true },
+	  charge: { type: Number, required: true },
+	  total: { type: Number, required: true },
+	  account_no: { type: String, required: true },
+	  bankname: { type: String, required: true },
+	  ifsc: { type: String, required: true },
+	  address: { type: String, required: true },
+	  email: Joi.string().email().required().label("Email"),
+
+  });
+
 userSchema.methods.generateAuthToken = function () {
 	const token = jwt.sign({ _id: this._id }, process.env.JWTPRIVATEKEY, {
 		expiresIn: "7d",
@@ -28,6 +40,21 @@ const validate = (data) => {
 	});
 	return schema.validate(data);
 };
+const Order = mongoose.model("order", orderSchema);
 
 
-module.exports = { User, validate };
+const ovalidate = (order) => {
+  const schema = Joi.object({
+		sending_amt: Joi.number().required().label("amt1234"),
+		charge: Joi.number().required().label("charge"),
+		total: Joi.number().required().label("total"),
+		account_no: Joi.string().required().label("account_no"),
+		bankname: Joi.string().required().label("bankname"),
+		ifsc: Joi.string().required().label("ifsc"),
+		address: Joi.string().required().label("address"),
+		email: Joi.string().email().required().label("email"),
+	});
+  return schema.validate(order);
+};
+
+module.exports = { User,Order, validate, ovalidate };
