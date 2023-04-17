@@ -69,3 +69,7 @@ input[type="search"]:focus {
 .btnid:active {
   background-color: transparent !important;
 }
+.text_drop:hover {
+  opacity: 100%;
+
+}
