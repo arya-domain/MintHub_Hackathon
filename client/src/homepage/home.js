@@ -13,25 +13,9 @@ export const Home = () => {
   return (
     <CryptoProvider>
       <div className="Home bg-gray-950">
-        {token ? (
-          <div>
-            <NAV />
-            <Outlet />
-            <Footer />
-          </div>
-        ) : (
-          location.pathname === "/register" ?
-            <div>
-              <NAV />
-              <Signup />
-              <Footer />
-            </div> :
-            <div>
-              <NAV />
-              <Login />
-              <Footer />
-            </div>
-        )}
+        <NAV />
+        <Outlet />
+        <Footer />
       </div>
     </CryptoProvider>
   );

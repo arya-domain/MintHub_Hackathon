@@ -63,13 +63,13 @@ export const NAV = () => {
             </Dropdown>
             {token ?
               (
-                <Dropdown className="ease-in-out delay-300 ">
+                <Dropdown className="ease-in-out delay-300 opacity-100 text_drop">
                   <Dropdown.Toggle className="py-0 text-[23px] font-bold text-white  bg-opacity-0 opacity-70 border-0 hover:bg-transparent active:bg-transparent focus:bg-transparent hover:text-2xl btnid hover:opacity-100" >
                     {fname} {lname}
                   </Dropdown.Toggle>
-                  <Dropdown.Menu className="text-white bg-opacity-100 opacity-100 bg-gradient-to-t from-black to-purple-500 active:bg-opacity-100 focus:bg-opacity-100">
-                    <Link to="/dashboard"><Dropdown.Item className="ml-2 text-white hover:bg-transparent hover:opacity-100 opacity-70">Account Details</Dropdown.Item></Link>
-                    <Dropdown.Item className="ml-2 text-white hover:opacity-100 hover:bg-transparent" onClick={handleLogout}>Logout</Dropdown.Item>
+                  <Dropdown.Menu className="text-white bg-opacity-100 opacity-100 bg-gradient-to-t from-black to-purple-500 active:bg-opacity-100 focus:bg-opacity-100 ">
+                    <Dropdown.Item className="ml-2 text-white hover:bg-transparent text_drop" href="/dashboard">Account Details</Dropdown.Item>
+                    <Dropdown.Item className="ml-2 text-white  hover:bg-transparent text_drop" onClick={handleLogout}>Logout</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
               ) : (
