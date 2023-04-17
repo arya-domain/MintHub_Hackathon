@@ -6,6 +6,7 @@ import styles from "./login.module.css";
 export const Login = () => {
 	const [data, setData] = useState({ email: "", password: "" });
 	const [error, setError] = useState("");
+	const [showPassword, setShowPassword] = useState(false);
 
 	const handleChange = ({ currentTarget: input }) => {
 		setData({ ...data, [input.name]: input.value });
@@ -20,6 +21,8 @@ export const Login = () => {
 			localStorage.setItem("fname", res.fname);
 			localStorage.setItem("lname", res.lname);
 			localStorage.setItem("email", res.email);
+			localStorage.setItem("phoneno", res.phoneno);
+			localStorage.setItem("country", res.country);
 			window.location = "/dashboard";
 		} catch (error) {
 			if (
@@ -47,22 +50,27 @@ export const Login = () => {
 							required
 							className={styles.input}
 						/>
-						<input
-							type="password"
-							placeholder="Password"
-							name="password"
-							onChange={handleChange}
-							value={data.password}
-							required
-							className={styles.input}
-						/>
+						<div>
+							<input
+								type={showPassword ? "test" : "password"}
+								placeholder="Password"
+								name="password"
+								onChange={handleChange}
+								value={data.password}
+								required
+								className={styles.input}
+							/>
+							<button
+								type="button"
+								className={styles.password_toggle}
+								onClick={() => setShowPassword(!showPassword)}>
+								{showPassword ? "❌" : "👁️"}
+							</button>
+						</div>
 						{error && <div className={styles.error_msg}>{error}</div>}
 						<button type="submit" className={styles.green_botn}>
 							Login
 						</button>
-						<Link to=""><button type="button" className={styles.white_botn}>
-							Forgot Password?
-						</button></Link>
 					</form>
 				</div>
 				<div className={styles.right}>

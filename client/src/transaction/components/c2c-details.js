@@ -28,7 +28,8 @@ export const Details = (props) => {
 		try {
 			const url = "http://localhost:8080/api/c2c_order";
 			const { data : res } = await axios.post(url, allValues);
-			navigate("/market");
+      alert("Transaction completed successfully!");
+			navigate("/orders");
 			console.log(res.message);
 		} catch (error) {
 			if (

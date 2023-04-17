@@ -12,11 +12,11 @@ export const Home = () => {
   const location = useLocation()
   return (
     <CryptoProvider>
-      <div className="Home bg-gray-950">
+      <div className="Home bg-gray-950 min-h-[900px]">
         <NAV />
-        <Outlet />
-        <Footer />
+        <Outlet /> 
       </div>
+      <Footer />
     </CryptoProvider>
   );
 }

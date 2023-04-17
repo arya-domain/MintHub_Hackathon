@@ -95,13 +95,21 @@
 	border-color: white;
 	width: 180px;
 	font-weight: bold;
-	font-size: 14px;
+	font-size: 20px;
 	cursor: pointer;
 	
 }
 
 .green_botn {
-	background-image: linear-gradient(rgb(0, 0, 0), rgb(89, 12, 119));
+	font-size: 20px;
 	color: rgb(255, 255, 255);
 	margin: 10px;
+}
+
+.password_toggle {
+	margin-left: -25px;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
 }

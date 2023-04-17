@@ -92,14 +92,14 @@
 	border-radius: 20px;
 	width: 180px;
 	font-weight: bold;
-	font-size: 14px;
 	cursor: pointer;
+	font-size: 20px;
 }
 
 .green_btn {
-	background-image: linear-gradient(rgb(0, 0, 0), rgb(89, 12, 119));
 	color: #ffffff;
 	margin: 10px;
+	font-size: 20px;
 }
 
 .password_toggle {
