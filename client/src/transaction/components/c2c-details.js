@@ -162,7 +162,7 @@ export const Details = (props) => {
             </div>
           </Col>
           <Col>
-            <div className="card border-white text-black bg-gradient-to-t from-purple-600 to-purple-300 ">
+            <div className="card border-white text-white bg-gradient-to-r from-gray-950 to-purple-800 ">
               <div className="card-body space-y-4 text-left mt-10 mb-11">
                 <h1 className="card-title text-center font-bold text-4xl">Details</h1>
                 <p className="card-text"></p>

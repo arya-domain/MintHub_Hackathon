@@ -39,11 +39,13 @@ export const Fundout = () => {
       if ((balance >= receiver.symval) && (receiver.symval) && (receiver.symval > 0) && (crval[currency] >= receiver.symval * prices[currency]) && (receiver.symval * prices[currency] >= 500)) {
         const url = "http://localhost:8080/api/fundout";
         const { data: res } = await axios.post(url, allValues);
-        alert("Transaction completed successfully!");
+        setTimeout(() => {
+          alert("Transaction completed successfully!");
+        }, 10000);
         navigate("/orders");
         console.log(res.message);
       }
-      else{
+      else {
         alert("Conditions Not Satisfied");
       }
     } catch (error) {
@@ -140,9 +142,9 @@ export const Fundout = () => {
                 Details
               </h5>
               <table>
-                <thead>
+                <tbody>
                   <tr>
-                    <th colSpan="2">
+                    <th colSpan="2" className="pb-4">
                       <p className="text-2xl whitespace-nowrap">
                         {" "}
                         Balance : {balance}
@@ -156,58 +158,59 @@ export const Fundout = () => {
                         </button>
                       </p>
                     </th>
-                    <th></th>
                   </tr>
-                </thead>
-                <tbody>
                   <tr>
-                    <td className="whitespace-nowrap">Receiving Currency :</td>
-                    <td className="my-1  rounded-lg bg-transparent px-2 py-1 text-xl ">
+                    <td className="whitespace-nowrap pb-2 font-bold">Receiving Currency </td>
+                    <td>:</td>
+                    <td className="my-1 py-1 text-xl font-bold pb-2 relative left-[-30%]">
                       INR
                     </td>
                   </tr>
                   <tr>
-                    <td>Available Amount (INR) : &nbsp;&nbsp;</td>
-                    <td className="mx-2">{crval[currency]}</td>
+                    <td className="pb-2 font-bold">Available Amount </td>
+                    <td>:</td>
+                    <td className="my-1 py-1 text-xl font-bold pb-2 relative left-[-30%]">{crval[currency]}</td>
                   </tr>
                   <tr>
-                    <td>Crypto Selected :</td>
-                    <td className="mx-2">{receiver.symbol}</td>
+                    <td className="font-bold">Crypto Selected</td>
+                    <td>:</td>
+                    <td className="my-1 py-1 text-xl font-bold pb-2 relative left-[-30%]">{receiver.symbol}</td>
                   </tr>
                   <tr>
-                    <td className="whitespace-nowarp">Crypto Value (INR) :</td>
-                    <td className="mx-2">
+                    <td className="whitespace-nowarp font-bold">Crypto Value (INR)</td>
+                    <td>:</td>
+                    <td className="my-1 py-1 text-xl font-bold pb-2 relative left-[-30%]">
                       {(receiver.symval * prices[currency]).toFixed(2)}
                     </td>
                   </tr>
-
                   <tr>
                     <td>
-                      <div>
-                        Service Charge : <br />
-                        <small className="text-sm  whitespace-nowrap">
+                      <div className="font-bold">
+                        Service Charge <br />
+                        <small className="text-sm  whitespace-nowrap font-bold">
                           Whichever is Lower
                         </small>{" "}
                       </div>{" "}
                     </td>
-                    <td className="mx-2 "> 2% or ₹ 300</td>
+                    <td>:</td>
+                    <td className="my-1 py-1 text-xl font-bold pb-2 relative left-[-30%] whitespace-nowrap"> 2% or ₹ 300</td>
                   </tr>
                   <tr></tr>
                   <tr>
-                    <td>Receiving Total Amount : </td>
-                    <td className="mx-2 text-green-500 font-bold">
+                    <td className="whitespace-nowarp font-bold inline">Receiving Amount</td>
+                    <td>:</td>
+                    <td className="mx-2 text-green-500 font-bold my-1 py-1 text-xl pb-2 relative left-[-30%]">
                       {totalamt.toFixed(2)}
                     </td>
                   </tr>
                   <tr>
-                    <td>
-                      {" "}
+                    <td className="text-2xl font-bold">
                       {(balance >= receiver.symval) &&
                         (receiver.symval) &&
                         (receiver.symval > 0) &&
                         (crval[currency] >= receiver.symval * prices[currency]) &&
                         (receiver.symval * prices[currency] >= 500)
-                        ? "Wallet Address :"
+                        ? "Wallet Address"
                         : null}{" "}
                     </td>
                     <td className="mx-2">
@@ -216,17 +219,17 @@ export const Fundout = () => {
                         (receiver.symval > 0) &&
                         (crval[currency] >= receiver.symval * prices[currency]) &&
                         (receiver.symval * prices[currency] >= 500) ? (
-                        <div
+                        <p
                           className="whitespace-nowrap border-2 border-green-500 px-2 rounded-lg py-1 text-justify text-green-500 font-bold"
                           onClick={handleClick}
                           style={{ cursor: "pointer" }}
                         >
                           Copy Address
-                        </div>
+                        </p>
                       ) : (
-                        <div className=" text-red-600 font-bold whitespace-nowrap relative right-[72%]">
+                        <p className=" text-red-600 font-bold whitespace-nowrap relative right-[30%]">
                           Transaction Not Possible Yet
-                        </div>
+                        </p>
                       )}
                     </td>
                   </tr>
@@ -275,7 +278,7 @@ export const Fundout = () => {
                   <Col>
                     <select
                       value={receiver.symbol}
-                      className="custom-select  rounded-md bg-gray-700 py-2 px-4 text-xl items-center mb-2"
+                      className="custom-select  rounded-md bg-gray-700 py-2 px-4 text-xl font-bold items-center mb-2"
                       id="symbol"
                       name="symbol"
                       onChange={handleSetChange}

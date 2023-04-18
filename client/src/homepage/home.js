@@ -14,6 +14,11 @@ export const Home = () => {
     <CryptoProvider>
       <div className="Home bg-gray-950 min-h-[900px]">
         <NAV />
+        {location.pathname === "/" ?
+        <div className="text-white font-extrabold text-2xl text-center">
+             Welcome To MintHub
+        </div> 
+        : null}
         <Outlet /> 
       </div>
       <Footer />
