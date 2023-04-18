@@ -15,7 +15,7 @@ export const Home = () => {
       <div className="Home bg-gray-950 min-h-[900px]">
         <NAV />
         {location.pathname === "/" ?
-          <div className="text-2xl font-extrabold text-center text-white">
+          <div className="text-5xl font-extrabold text-center text-white">
             Welcome To MintHub
           </div>
           : null}
