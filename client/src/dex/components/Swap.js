@@ -211,7 +211,7 @@ function Swap(props) {
       </Modal>
       <div className="tradeBox">
         <div className="tradeBoxHeader">
-          <h4 className="position-fixed right-[55%] text-sm opacity-50">Setting</h4>
+          <h4 className="position-fixed right-[54.5%] text-sm opacity-50 ">Setting</h4>
           <Popover
             content={settings}
             title="Settings"
