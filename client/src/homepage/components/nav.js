@@ -42,9 +42,9 @@ export const NAV = () => {
               Transactions
             </Dropdown.Toggle>
             <Dropdown.Menu className="text-white bg-opacity-100 bg-gradient-to-t from-black to-purple-500 active:bg-opacity-100 focus:bg-opacity-100">
-              <Dropdown.Item href="/cr2cr" className="ml-2 text-xl hover:opacity-100 hover:bg-transparent">C2C</Dropdown.Item>
-              <Dropdown.Item href="/fundout" className="ml-2 text-xl hover:opacity-100 hover:bg-transparent">Fund Out</Dropdown.Item>
-              <Dropdown.Item href="/orders" className="ml-2 text-xl hover:opacity-100 hover:bg-transparent">Orders</Dropdown.Item>
+              <Dropdown.Item className="ml-2 text-xl hover:opacity-100 hover:bg-transparent"><Link to="/cr2cr">C2C</Link></Dropdown.Item>
+              <Dropdown.Item  className="ml-2 text-xl hover:opacity-100 hover:bg-transparent"><Link to="/fundout">Fund Out</Link></Dropdown.Item>
+              <Dropdown.Item  className="ml-2 text-xl hover:opacity-100 hover:bg-transparent"><Link to="/orders">Orders</Link></Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
           {token ?

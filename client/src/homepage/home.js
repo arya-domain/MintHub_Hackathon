@@ -3,6 +3,7 @@ import { NAV } from "./components/nav.js"
 import { Footer } from "./components/footer.js";
 import { CryptoProvider } from "../Market/components/CryptoContext.js";
 import { useLocation } from "react-router-dom";
+import { About } from "./components/about.js";
 
 const token = localStorage.getItem("authtoken");
 
@@ -13,16 +14,16 @@ export const Home = () => {
       <div className="Home bg-gray-950 min-h-[900px]">
         <NAV />
         {location.pathname === "/" ?
-        <div className="text-white font-extrabold text-2xl text-center">
-             Welcome To MintHub
-        </div> 
-        : null}
+          <div className="bg-gradient-to-b from-black via-gray-800 to-black h-screen">
+            <About />
+          </div>
+          : null}
         <div className="Home bg-gray-950 min-h-screen">
-        <Outlet /> 
+          <Outlet />
         </div>
         <Footer />
       </div>
-      
+
     </CryptoProvider>
   );
 }
