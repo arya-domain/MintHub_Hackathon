@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.79df63a8.css",
+    "main.js": "/static/js/main.e12547d3.js",
+    "static/media/minthub.png": "/static/media/minthub.c1b5074637386be36814.png",
+    "index.html": "/index.html",
+    "static/media/eth.svg": "/static/media/eth.df265e367364f285053a1285ad8d418d.svg",
+    "main.79df63a8.css.map": "/static/css/main.79df63a8.css.map",
+    "main.e12547d3.js.map": "/static/js/main.e12547d3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.79df63a8.css",
+    "static/js/main.e12547d3.js"
+  ]
+}
