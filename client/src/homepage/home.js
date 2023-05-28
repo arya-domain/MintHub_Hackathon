@@ -15,16 +15,16 @@ export const Home = () => {
       <div className="Home bg-gray-950 min-h-[900px]">
         <NAV />
         {location.pathname === "/" ?
-          <div className="text-5xl font-extrabold text-center text-white">
-            Welcome To MintHub
-          </div>
-          : null}
-        <div className="min-h-screen Home bg-gray-950">
-          <Outlet />
+        <div className="text-white font-extrabold text-2xl text-center">
+             Welcome To MintHub
+        </div> 
+        : null}
+        <div className="Home bg-gray-950 min-h-screen">
+        <Outlet /> 
         </div>
         <Footer />
       </div>
-
+      
     </CryptoProvider>
   );
 }

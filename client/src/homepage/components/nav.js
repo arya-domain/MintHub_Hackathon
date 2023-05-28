@@ -33,6 +33,8 @@ export const NAV = () => {
         <Col className="text-2xl align-baseline duration-300 ease-in-out rounded-md header__menuItems ">
           <Link to="/dashboard" className={`hover:text-2xl active:text-2xl focus:text-2xl opacity-${location.pathname === "/dashboard" ? '100' : '70'} hover:opacity-100`}>
             Dashboard</Link>
+          <Link to="/mintswap" className={`hover:text-2xl active:text-2xl focus:text-2xl opacity-${location.pathname === "/mintswap" ? '100' : '70'} hover:opacity-100`}>
+            MintSwap</Link>
           <Link to="/market" className={`hover:text-2xl active:text-2xl focus:text-2xl opacity-${location.pathname === "/market" ? '100' : '70'} hover:opacity-100`}>
             Market</Link>
           <Dropdown className="ease-in-out delay-300 ">

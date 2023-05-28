@@ -24,23 +24,54 @@ export const Details = (props) => {
   const allValues = {   ...receiver,   ...payable,  };
 
   const handleSubmit = async (e) => {
-		e.preventDefault();
-		try {
-			const url = "http://localhost:8080/api/c2c_order";
-			const { data : res } = await axios.post(url, allValues);
-      alert("Transaction completed successfully!");
-			navigate("/orders");
-			console.log(res.message);
-		} catch (error) {
-			if (
-				error.response &&
-				error.response.status >= 400 &&
-				error.response.status <= 500
-			) {
-				setError(error.response.data.message);
-			}
-		}
+    e.preventDefault();
+    try {
+      const orderUrl = "http://localhost:8080/api/payment/checkout";
+      const { data } = await axios.post(orderUrl, { amount: payable.total, currency: sendercr });
+      console.log(data);
+      initPayment(data.data);
+  
+      const url = "http://localhost:8080/api/c2c_order";
+      const { data: res } = await axios.post(url, allValues);
+      
+      console.log(res.message);
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.status >= 400 &&
+        error.response.status <= 500
+      ) {
+        setError(error.response.data.message);
+      }
+    }
+  };
+  
+
+  const initPayment = (data) => {
+		const options = {
+			key: "rzp_test_bfQJCNjogFYaVM",
+			amount: data.amount,
+			currency: data.currency,
+			name: payable.total,
+			description: "Test Transaction",
+			order_id: data.id,
+			handler: async (response) => {
+				try {
+					const verifyUrl = "http://localhost:8080/api/payment/verify";
+					const { data } = await axios.post(verifyUrl, response);
+					console.log(data);
+				} catch (error) {
+					console.log(error);
+				}
+			},
+			theme: {
+				color: "#3399cc",
+			},
+		};
+		const rzp1 = new window.Razorpay(options);
+		rzp1.open();
 	};
+
 
   useEffect(() => {
     const url = `https://api.exchangerate-api.com/v4/latest/INR`;
@@ -80,7 +111,6 @@ export const Details = (props) => {
     if (value1 > value2) { setPayable({ ...payable, total: value2 }) }
     else { setPayable({ ...payable, total: value1 }) }
   }, [send])
-
   return (
     <div className="text-white text-xl text-center  justify-contents-center align-items-center bg-gradient-to-l from-black to-purple-700 pt-4">
       <Container >
