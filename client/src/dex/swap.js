@@ -1,11 +1,11 @@
 import React from "react";
 import "./swap.css";
 import App from "./App";
-import { configureChains, mainnet, WagmiConfig, createClient } from "wagmi";
+import { configureChains, mainnet, WagmiConfig, createClient, goerli } from "wagmi";
 import { publicProvider } from "wagmi/providers/public";
 
 const { provider, webSocketProvider } = configureChains(
-  [mainnet],
+  [goerli],
   [publicProvider()]
 );
 

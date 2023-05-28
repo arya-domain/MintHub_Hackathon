@@ -55,8 +55,7 @@ export const Orders = () => {
 
   return (
     <div className="text-white text-xl text-center min-h-screen justify-content-center align-items-center bg-gradient-to-b from-black via-purple-700 to-black pt-4">
-      <Row className="mx-20">
-        <div className="position-relative left-[20%]"><h1 className="text-4xl font-extrabold">C2C Transactions</h1><br></br>
+        <div className=""><h1 className="text-4xl font-extrabold">C2C Transactions</h1><br></br>
           {orders.length > 0 ? (
             orders.map(order => (
               <div key={order._id} className="card bg-black border-white w-1/2 mx-auto mb-4 rounded-xl py-2">
@@ -112,7 +111,7 @@ export const Orders = () => {
           )}
         </div>
 
-        <div className="position-relative left-[40%]"><h1 className="text-4xl font-extrabold ">Fundout Transactions</h1><br></br>
+        <div className=""><h1 className="text-4xl font-extrabold ">Fundout Transactions</h1><br></br>
           {funds.length > 0 ? (
             funds.map(fund => (
 
@@ -150,6 +149,10 @@ export const Orders = () => {
                         <td><p className="text-lg mb-2 text-left px-5">UPI ID:</p></td>
                         <td><p className="text-lg mb-2 text-left">{fund.upi_id}</p></td>
                       </tr>
+                      <tr>
+                        <td><p className="text-lg mb-2 text-left px-5">Transaction ID:</p></td>
+                        <td><p className="text-lg mb-2 text-left">{fund.txnid}</p></td>
+                      </tr>
                     </tbody>
                   </table>
                 )}
@@ -160,7 +163,6 @@ export const Orders = () => {
             <p>No orders found.</p>
           )}
         </div>
-      </Row>
     </div>
   );
 }

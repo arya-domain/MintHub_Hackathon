@@ -35,6 +35,7 @@ const fundSchema = new mongoose.Schema({
   totalamt: { type: Number, required: true },
   upi_id: { type: String, required: true },
   email: { type: String, required: true },
+  txnid: { type: String, required: true },
 });
 
 userSchema.methods.generateAuthToken = function () {
@@ -53,10 +54,10 @@ const validate = (data) => {
     email: Joi.string().email().required().label("Email"),
     password: passwordComplexity().required().label("Password"),
     phoneno: Joi.number().required().label("Phone No"),
-		address: Joi.string().required().label("Address"),
-		country: Joi.string().required().label("Country"),
-		pincode: Joi.number().required().label("Pincode"),
-    
+    address: Joi.string().required().label("Address"),
+    country: Joi.string().required().label("Country"),
+    pincode: Joi.number().required().label("Pincode"),
+
   });
   return schema.validate(data);
 };
@@ -90,9 +91,10 @@ const fvalidate = (fund) => {
     totalamt: Joi.number().required().label("totalamt"),
     upi_id: Joi.string().required().label("upi_id"),
     email: Joi.string().email().required().label("email"),
+    txnid: Joi.string().required().label("txnid"),
   });
   return schema.validate(fund);
-  
+
 };
 
-module.exports = { User, Order, Fund, validate, ovalidate, fvalidate};
+module.exports = { User, Order, Fund, validate, ovalidate, fvalidate };

@@ -1,5 +1,19 @@
 [
     {
+        "ticker": "WETH",
+        "img": "https://cdn.moralis.io/eth/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2.png",
+        "name": "Wrapped Ethereum",
+        "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "decimals": 18
+    },
+    {
+        "ticker": "UNI",
+        "img": "https://cdn.moralis.io/eth/0x1f9840a85d5af5bf1d1762f925bdaddc4201f984.png",
+        "name": "Uniswap",
+        "address": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
+        "decimals": 18
+    },
+    {
         "ticker": "USDC",
         "img": "https://cdn.moralis.io/eth/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48.png",
         "name": "USD Coin",
@@ -35,13 +49,6 @@
         "decimals": 18
     },
     {
-        "ticker": "WETH",
-        "img": "https://cdn.moralis.io/eth/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2.png",
-        "name": "Wrapped Ethereum",
-        "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
-        "decimals": 18
-    },
-    {
         "ticker": "WBTC",
         "img": "https://cdn.moralis.io/eth/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599.png",
         "name": "Wrapped Bitcoin",
@@ -53,13 +60,6 @@
         "img": "https://cdn.moralis.io/eth/0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0.png",
         "name": "Matic Token",
         "address": "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0",
-        "decimals": 18
-    },
-    {
-        "ticker": "UNI",
-        "img": "https://cdn.moralis.io/eth/0x1f9840a85d5af5bf1d1762f925bdaddc4201f984.png",
-        "name": "Uniswap",
-        "address": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
         "decimals": 18
     },
     {
@@ -90,6 +90,4 @@
         "address": "0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9",
         "decimals": 18
     }
-
-
 ]

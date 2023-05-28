@@ -27,13 +27,13 @@ export const Transaction = () => {
                 </label>
                 <select
                 value={data.scr}
-                className="custom-select my-1 mr-sm-2 rounded-md bg-gray-700 px-5 py-2 ml-6 text-xl"
+                className="custom-select my-1 mr-sm-2 rounded-md bg-gray-700 px-5 py-2 ml-10 text-xl"
                 id="sender-currency"
                 name="scr"
                 onChange={handleChange}
                 >
-                <option value="INR" >INR</option>
-                <option value="JPY">JPY</option>
+                <option value="INR">INR</option>
+                <option value="SGD">SGD</option>
                 <option value="USD">USD</option>
                 <option value="AED">AED</option>
                 <option value="EUR">EUR</option>
@@ -51,7 +51,7 @@ export const Transaction = () => {
                 onChange={handleChange}
                 >
                 <option value="INR">INR</option>
-                <option value="JPY">JPY</option>
+                <option value="SGD">SGD</option>
                 <option value="USD" selected>USD</option>
                 <option value="AED">AED</option>
                 <option value="EUR">EUR</option>

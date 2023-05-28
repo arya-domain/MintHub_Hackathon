@@ -7,21 +7,21 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 export const Details = (props) => {
-  const email =localStorage.getItem("email")
+  const email = localStorage.getItem("email")
 
   const location = useLocation();
   const { data } = location.state;
   const [send, setSend] = useState();
   const [rate, setRate] = useState(null);
   const [receiver, setData] = useState({ account_no: "", bankname: "", ifsc: "", address: "" })
-  const [payable, setPayable] = useState({ sending_amt: "", charge: 2, total: "", email : email });
+  const [payable, setPayable] = useState({ sending_amt: "", charge: 2, total: "", email: email });
   const [lowercharge, setLowerCharge] = useState(null);
   const sendercr = data.scr.toUpperCase();
-  const crsymbol = { INR: '₹', USD: "$", EUR: "€", JPY: "¥", AED: "د.إ " }
+  const crsymbol = { INR: '₹', USD: "$", EUR: "€", SGD: "$", AED: "د.إ " }
   const navigate = useNavigate();
   const [error, setError] = useState("");
 
-  const allValues = {   ...receiver,   ...payable,  };
+  const allValues = { ...receiver, ...payable, };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,10 +30,10 @@ export const Details = (props) => {
       const { data } = await axios.post(orderUrl, { amount: payable.total, currency: sendercr });
       console.log(data);
       initPayment(data.data);
-  
+
       const url = "http://localhost:8080/api/c2c_order";
       const { data: res } = await axios.post(url, allValues);
-      
+
       console.log(res.message);
     } catch (error) {
       if (
@@ -45,32 +45,32 @@ export const Details = (props) => {
       }
     }
   };
-  
+
 
   const initPayment = (data) => {
-		const options = {
-			key: "rzp_test_bfQJCNjogFYaVM",
-			amount: data.amount,
-			currency: data.currency,
-			name: payable.total,
-			description: "Test Transaction",
-			order_id: data.id,
-			handler: async (response) => {
-				try {
-					const verifyUrl = "http://localhost:8080/api/payment/verify";
-					const { data } = await axios.post(verifyUrl, response);
-					console.log(data);
-				} catch (error) {
-					console.log(error);
-				}
-			},
-			theme: {
-				color: "#3399cc",
-			},
-		};
-		const rzp1 = new window.Razorpay(options);
-		rzp1.open();
-	};
+    const options = {
+      key: "rzp_test_bfQJCNjogFYaVM",
+      amount: data.amount,
+      currency: data.currency,
+      name: payable.total,
+      description: "Test Transaction",
+      order_id: data.id,
+      handler: async (response) => {
+        try {
+          const verifyUrl = "http://localhost:8080/api/payment/verify";
+          const { data } = await axios.post(verifyUrl, response);
+          console.log(data);
+        } catch (error) {
+          console.log(error);
+        }
+      },
+      theme: {
+        color: "#3399cc",
+      },
+    };
+    const rzp1 = new window.Razorpay(options);
+    rzp1.open();
+  };
 
 
   useEffect(() => {
@@ -94,7 +94,7 @@ export const Details = (props) => {
   const handleInputChange = (event) => {
     const value = parseFloat(event.target.value);
     setSend(isNaN(value) ? "" : value);
-    setPayable({ ...payable, sending_amt: value});
+    setPayable({ ...payable, sending_amt: value });
   }
 
   const handleSetChange = (event) => {
@@ -116,7 +116,7 @@ export const Details = (props) => {
       <Container >
         <Row>
           <Col>
-            <div className="card bg-black border-white">
+            <div className="card bg-black border-white h-[800px]">
               <div className="card-body space-y-8 text-left mt-10 mb-11">
                 <p className="card-title text-center font-bold text-4xl">Sender's Section</p>
                 <div className="space-y-2 mx-10">
@@ -193,12 +193,12 @@ export const Details = (props) => {
           </Col>
           <Col>
             <div className="card border-white text-white bg-gradient-to-r from-gray-950 to-purple-800 ">
-              <div className="card-body space-y-4 text-left mt-10 mb-11">
+              <div className="card-body space-y-4 text-left mt-10 mb-12">
                 <h1 className="card-title text-center font-bold text-4xl">Details</h1>
                 <p className="card-text"></p>
-                <table class="w-full mb-6">
+                <table class="w-full mb-7">
                   <tr>
-                    <th class="py-2 px-4 font-bold text-3xl underline">Amount To Be Received In {data.rcr}</th>
+                    <th class="py-2 px-4 font-bold text-3xl ">Amount To Be Received In {data.rcr}</th>
                     <td class="py-2 px-4 font-bold text-3xl">:</td>
                     <th class="py-2 px-4 font-bold text-3xl ">{crsymbol[data.rcr]}{(parseFloat(send) / rate).toFixed(2)} </th>
                   </tr>
@@ -230,27 +230,26 @@ export const Details = (props) => {
                 </table>
                 <table class="mb-6">
                   <tr>
-                    <td class="py-3 px-4 font-bold text-3xl underline">Payment Details -</td>
+                    <td class="py-3 px-4 font-bold text-3xl underline inline-block">Payment Details-</td>
                   </tr>
                   <tr>
-                    <td class="py-2 px-4 font-bold text-2xl">Sending Amount</td>
+                    <td class="flex items-center py-2 px-4 font-bold text-2xl">Sending Amount</td>
                     <td class="py-2 px-4 font-bold text-2xl">:</td>
-                    <td class="py-2 px-4 font-bold text-2xl">{crsymbol[data.scr]}{payable.sending_amt ? payable.sending_amt : "NaN" }</td>
+                    <td class="py-2 px-4 font-bold text-2xl">{crsymbol[data.scr]}{payable.sending_amt ? payable.sending_amt : "NaN"}</td>
                   </tr>
                   <tr>
-                    <td class="pt-2 px-4 font-bold text-2xl ">
-                      Service Charge <br />
-                      <small className="text-sm pt-0 mt-0 text-center" >Whichever Is Lower</small></td>
-
+                    <td class="items-center pt-2 px-4 font-bold text-2xl">
+                      Charge <br />
+                      <small class="text-sm pt-0 mt-0 text-center">Whichever Is Lower</small>
+                    </td>
                     <td class="py-2 px-4 font-bold text-2xl">:</td>
-                    <td class="py-2 px-4 font-bold text-2xl">{payable.charge}% OR {crsymbol[data.scr]}{lowercharge * 200}</td>
+                    <td class="py-2 px-4 font-bold text-2xl">{payable.charge}% OR {crsymbol[data.scr]}{(lowercharge * 200).toFixed(2)}</td>
                   </tr>
                   <tr>
-                    <td class="py-2 px-4 font-extrabold text-2xl">Total Amount To Be Paid</td>
+                    <td class="flex items-center py-2 px-4 font-extrabold text-2xl">Payable</td>
                     <td class="py-2 px-4 font-extrabold text-2xl">:</td>
                     <td class="py-2 px-4 font-extrabold text-2xl">{crsymbol[data.scr]}{payable.total}</td>
                   </tr>
-
                 </table>
               </div>
             </div>

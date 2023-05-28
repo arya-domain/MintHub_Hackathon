@@ -175,8 +175,8 @@ function Swap(props) {
       <div>
         <Radio.Group value={slippage} onChange={handleSlippageChange}>
           <Radio.Button value={0.5}>0.5%</Radio.Button>
-          <Radio.Button value={2.5}>2.5%</Radio.Button>
-          <Radio.Button value={5}>5.0%</Radio.Button>
+          <Radio.Button value={2.5}>1.5%</Radio.Button>
+          <Radio.Button value={5}>3.0%</Radio.Button>
         </Radio.Group>
       </div>
     </>
@@ -211,7 +211,7 @@ function Swap(props) {
       </Modal>
       <div className="tradeBox">
         <div className="tradeBoxHeader">
-          <h4 className="position-fixed right-[53%] text-sm opacity-50">Setting</h4>
+          <h4 className="position-fixed right-[55%] text-sm opacity-50">Setting</h4>
           <Popover
             content={settings}
             title="Settings"

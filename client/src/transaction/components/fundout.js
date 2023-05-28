@@ -14,6 +14,7 @@ export const Fundout = () => {
     upi_id: "",
     symval: "",
     symbol: "BTC",
+    txnid: "",
   });
   const [currency, setCurr] = useState("INR");
   const crval = { INR: 10000 };
@@ -227,7 +228,7 @@ export const Fundout = () => {
                           Copy Address
                         </p>
                       ) : (
-                        <p className=" text-red-600 font-bold whitespace-nowrap relative right-[30%]">
+                        <p className=" text-red-600 font-bold whitespace-nowrap relative right-[50%]">
                           Transaction Not Possible Yet
                         </p>
                       )}
@@ -244,7 +245,7 @@ export const Fundout = () => {
               <h5 class="card-title text-center text-5xl font-extrabold bg-clip-text bg-gradient-to-t from-gray-200 to-purple-800 text-transparent">
                 Fund Out
               </h5>
-              <div className=" mx-40 py-4">
+              <div className=" mx-40 py-2">
                 <Row>
                   <Col>
                     <label className="py-2 px-4 font-bold text-2xl whitespace-nowrap">
@@ -268,7 +269,7 @@ export const Fundout = () => {
                   </Col>
                 </Row>
               </div>
-              <div className=" mx-40 py-4 -pb-2">
+              <div className=" mx-40 py-2 -pb-2">
                 <Row>
                   <Col>
                     <label className="py-2 px-4 font-bold text-2xl whitespace-nowrap">
@@ -290,7 +291,7 @@ export const Fundout = () => {
                   </Col>
                 </Row>
               </div>
-              <div className=" mx-40 py-4">
+              <div className=" mx-40 py-2">
                 <Row>
                   <Col>
                     <label className="py-2 px-4 font-bold text-2xl whitespace-nowrap">
@@ -306,6 +307,27 @@ export const Fundout = () => {
                       placeholder="Cypto Amount"
                       aria-describedby="basic-addon1"
                       name="symval"
+                      required
+                    />
+                  </Col>
+                </Row>
+              </div>
+              <div className=" mx-40 py-2">
+                <Row>
+                  <Col>
+                    <label className="py-2 px-4 font-bold text-2xl whitespace-nowrap">
+                      Transaction ID
+                    </label>
+                  </Col>
+                  <Col>
+                    <input
+                      value={receiver.txnid}
+                      onChange={handleSetChange}
+                      type="text"
+                      className="form-control"
+                      placeholder="Txn Id"
+                      aria-describedby="basic-addon1"
+                      name="txnid"
                       required
                     />
                   </Col>
