@@ -1,5 +1,10 @@
 import lkdn from "../assets/lkdn.svg"
 import git from "../assets/git.svg"
+import rajul from "../assets/rajul.jpeg"
+import arya from "../assets/arya.png"
+import sarthak from "../assets/sarthak.jpeg"
+import tanmoy from "../assets/tanmoy.jfif"
+import deva from "../assets/deva.png"
 import { Link } from "react-router-dom";
 export const About = () => {
     return (
@@ -7,7 +12,7 @@ export const About = () => {
             <p className="text-8xl opacity-90 italic text-transparent bg-clip-text bg-gradient-to-t from-white pt-4">Welcome To MintHub</p>
             <div class="card bg-transparent border-transparent">
                 <div class="card-body ">
-                    <h5 class="card-title text-5xl font-black italic text-right position-relative right-[65%] opacity-90 ">What Do We Offer ?</h5>
+                    <h5 class="card-title text-5xl font-black italic text-right position-relative right-[65%] opacity-90 mt-[2%]">What Do We Offer ?</h5>
                     <p class="card-text max-w-4xl text-justify position-relative left-[12%] text-lg opacity-70 py-2">
                         Welcome to our site! We offer a range of exciting features and services to enhance your cryptocurrency experience. Whether you're a seasoned trader or a curious beginner, we have something for everyone.
                     </p>
@@ -47,7 +52,7 @@ export const About = () => {
             </div>
             <div class="card bg-transparent border-transparent">
                 <div class="card-body ">
-                    <h5 class="card-title text-5xl font-black italic text-right position-relative right-[10%] opacity-90">Our Future Plans ?</h5>
+                    <h5 class="card-title text-5xl font-black italic text-right position-relative right-[10%] opacity-90 mt-[6%]">Our Future Plans ?</h5>
                     <p class="card-text max-w-4xl text-justify position-relative left-[38%] text-lg opacity-70 py-2">
                         We constantly strive to innovate and provide the best possible experience for our users. While we already offer a wide range of features including a DEX , Market with analytical graphs and Two transactional functions—C2C international transactions and Fundout for exchanging crypto with real money. Our future plans are even more exciting.
                     </p>
@@ -78,12 +83,12 @@ export const About = () => {
                 </div>
             </div>
             <div>
-                <p className="text-5xl font-black text-center position-relative text-transparent bg-clip-text bg-gradient-to-t from-white">Meet Our Team</p>
+                <p className="text-5xl font-black text-center position-relative text-transparent bg-clip-text bg-gradient-to-t from-white mt-[10%]">Meet Our Team</p>
                 <div class="card-group pt-10">
                     <div class="card bg-transparent border-transparent ">
-                        <img class="card-img-top" src="..." alt="Card image cap" />
+                        <div class="flex justify-center"><img class=" rounded-full w-64 ml-10" src={arya} alt="Card image cap" /></div>
                         <div class="card-body">
-                            <h5 class="card-title py-2 text-xl ">Aryan Das</h5>
+                            <h5 class="card-title py-2 text-xl">Aryan Das</h5>
                             <div class="card-text flex items-center justify-center py-2">
                                 <Link to="https://www.linkedin.com/in/aryan--das/">
                                     <img class="bg-white rounded-full h-8 px-0 mx-2 " src={lkdn} alt="linkedin" />
@@ -93,13 +98,13 @@ export const About = () => {
                                 </Link>
                             </div>
                             <div className="py-2 flex items-center justify-center text-center">
-                                VIT Bhopal University, India
+                                VIT Bhopal University, Bhopal, India
                                 <br />BTech CSE Core
                             </div>
                         </div>
                     </div>
                     <div class="card bg-transparent border-transparent ">
-                        <img class="card-img-top" src="..." alt="Card image cap" />
+                        <div class="flex justify-center"><img class=" rounded-full w-64 ml-10" src={tanmoy} alt="Card image cap" /></div>
                         <div class="card-body">
                             <h5 class="card-title py-2 text-xl ">Tanmoy Mondal</h5>
                             <div class="card-text flex items-center justify-center py-2">
@@ -111,61 +116,61 @@ export const About = () => {
                                 </Link>
                             </div>
                             <div className="py-2 flex items-center justify-center text-center">
-                                , India
-                                <br />BTech CSE Core
+                                Netaji Subhash Engineering College, Kolkata, India
+                                <br />BTech CSE
                             </div>
                         </div>
                     </div>
                     <div class="card bg-transparent border-transparent ">
-                        <img class="card-img-top" src="..." alt="Card image cap" />
+                        <div class="flex justify-center"><img class=" rounded-full w-64 ml-10" src={rajul} alt="Card image cap" /></div>
                         <div class="card-body">
                             <h5 class="card-title py-2 text-xl ">Rajul Mahto</h5>
                             <div class="card-text flex items-center justify-center py-2">
-                                <Link to="">
+                                <Link to="https://www.linkedin.com/in/rajul-mahto-313463200/">
                                     <img class="bg-white rounded-full h-8 px-0 mx-2 " src={lkdn} alt="linkedin" />
                                 </Link>
-                                <Link to="">
+                                <Link to="https://github.com/Rajulmahto21">
                                     <img class="bg-white rounded-full h-8 px-0 mx-2 " src={git} alt="github" />
                                 </Link>
                             </div>
                             <div className="py-2 flex items-center justify-center text-center">
-                                , India
+                                VIT Bhopal University, Bhopal, India
                                 <br />BTech CSE Core
                             </div>
                         </div>
                     </div>
                     <div class="card bg-transparent border-transparent ">
-                        <img class="card-img-top" src="..." alt="Card image cap" />
+                        <div class="flex justify-center"><img class=" rounded-full w-64 ml-10" src={deva} alt="Card image cap" /></div>
                         <div class="card-body">
                             <h5 class="card-title py-2 text-xl ">Devashish Jindal</h5>
                             <div class="card-text flex items-center justify-center py-2">
-                                <Link to="">
+                                <Link to="https://www.linkedin.com/in/devashish-jindal-830400228">
                                     <img class="bg-white rounded-full h-8 px-0 mx-2 " src={lkdn} alt="linkedin" />
                                 </Link>
-                                <Link to="">
+                                <Link to="https://github.com/drace28">
                                     <img class="bg-white rounded-full h-8 px-0 mx-2 " src={git} alt="github" />
                                 </Link>
                             </div>
                             <div className="py-2 flex items-center justify-center text-center">
-                                , India
+                                VIT Bhopal University, Bhopal, India
                                 <br />BTech CSE Core
                             </div>
                         </div>
                     </div>
                     <div class="card bg-transparent border-transparent ">
-                        <img class="card-img-top" src="..." alt="Card image cap" />
+                        <div class="flex justify-center"><img class=" rounded-full w-64 ml-10" src={sarthak} alt="Card image cap" /></div>
                         <div class="card-body">
                             <h5 class="card-title py-2 text-xl ">Sarthak Joshi</h5>
                             <div class="card-text flex items-center justify-center py-2">
-                                <Link to="">
+                                <Link to="https://www.linkedin.com/in/sarthak-joshi-413450200">
                                     <img class="bg-white rounded-full h-8 px-0 mx-2 " src={lkdn} alt="linkedin" />
                                 </Link>
-                                <Link to="">
+                                <Link to="https://github.com/NotSoToxic">
                                     <img class="bg-white rounded-full h-8 px-0 mx-2 " src={git} alt="github" />
                                 </Link>
                             </div>
                             <div className="py-2 flex items-center justify-center text-center">
-                                , India
+                                VIT Bhopal University, Bhopal, India
                                 <br />BTech CSE Core
                             </div>
                         </div>

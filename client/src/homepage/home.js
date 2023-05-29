@@ -5,8 +5,6 @@ import { CryptoProvider } from "../Market/components/CryptoContext.js";
 import { useLocation } from "react-router-dom";
 import { About } from "./components/about.js";
 
-const token = localStorage.getItem("authtoken");
-
 export const Home = () => {
   const location = useLocation()
   return (
@@ -14,7 +12,7 @@ export const Home = () => {
       <div className="Home bg-gray-950 min-h-[900px] ">
         <NAV />
         {location.pathname === "/" ?
-          <div className="bg-gradient-to-b from-black via-gray-800 to-black max-h-[1200px] ">
+          <div className="bg-gradient-to-b from-black via-gray-800 to-black max-h-[1800px] ">
             <About />
           </div>
           : null}
