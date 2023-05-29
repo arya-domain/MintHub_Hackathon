@@ -34,6 +34,7 @@
     "crypto-symbol": "^3.5.362",
     "ethers": "^5.6.8",
     "file-saver": "^2.0.5",
+    "gh-pages": "^5.0.0",
     "https-browserify": "^1.0.0",
     "jsbi": "^3.2.5",
     "jsonwebtoken": "^9.0.0",
@@ -76,6 +77,8 @@
     "zlib": "^1.0.5"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "postinstall": "patch-package",
     "start": "react-scripts start",
     "build": "react-scripts build",

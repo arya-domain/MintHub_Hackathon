@@ -23,14 +23,14 @@ export const NAV = () => {
   }
 
   return (
-    <div >
+    <div className="">
       <Row className="header__wrapper flex bg-gradient-to-t from-black to-purple-500  mr-0">
         <Col>
           <div className="header__logo">
             <Link to="/"><img src={Logo} alt="logo" className="max-w-[10%] transform -scale-x-100 float-right" /></Link>
           </div>
         </Col>
-        <Col className="text-2xl align-baseline duration-300 ease-in-out rounded-md header__menuItems ">
+        <Col className="text-2xl align-baseline duration-300 ease-in-out rounded-md header__menuItems right-[5%] position-relative">
           <Link to="/dashboard" className={`hover:text-2xl active:text-2xl focus:text-2xl opacity-${location.pathname === "/dashboard" ? '100' : '70'} hover:opacity-100`}>
             Dashboard</Link>
           <Link to="/mintswap" className={`hover:text-2xl active:text-2xl focus:text-2xl opacity-${location.pathname === "/mintswap" ? '100' : '70'} hover:opacity-100`}>
@@ -43,8 +43,8 @@ export const NAV = () => {
             </Dropdown.Toggle>
             <Dropdown.Menu className="text-white bg-opacity-100 bg-gradient-to-t from-black to-purple-500 active:bg-opacity-100 focus:bg-opacity-100">
               <Dropdown.Item className="ml-2 text-xl hover:opacity-100 hover:bg-transparent"><Link to="/cr2cr">C2C</Link></Dropdown.Item>
-              <Dropdown.Item  className="ml-2 text-xl hover:opacity-100 hover:bg-transparent"><Link to="/fundout">Fund Out</Link></Dropdown.Item>
-              <Dropdown.Item  className="ml-2 text-xl hover:opacity-100 hover:bg-transparent"><Link to="/orders">Orders</Link></Dropdown.Item>
+              <Dropdown.Item className="ml-2 text-xl hover:opacity-100 hover:bg-transparent"><Link to="/fundout">Fund Out</Link></Dropdown.Item>
+              <Dropdown.Item className="ml-2 text-xl hover:opacity-100 hover:bg-transparent"><Link to="/orders">Orders</Link></Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
           {token ?

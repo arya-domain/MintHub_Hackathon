@@ -11,10 +11,10 @@ export const Home = () => {
   const location = useLocation()
   return (
     <CryptoProvider>
-      <div className="Home bg-gray-950 min-h-[900px]">
+      <div className="Home bg-gray-950 min-h-[900px] ">
         <NAV />
         {location.pathname === "/" ?
-          <div className="bg-gradient-to-b from-black via-gray-800 to-black h-screen">
+          <div className="bg-gradient-to-b from-black via-gray-800 to-black max-h-[1200px] ">
             <About />
           </div>
           : null}
