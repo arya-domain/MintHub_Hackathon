@@ -5,7 +5,7 @@ import { cryptoSymbol } from 'crypto-symbol';
 import './market.css'
 import { Link, Outlet } from 'react-router-dom';
 import coins from './assets/coins.json';
-
+import cryptoIcons from './assets/crypto_icons.json';
 
 const socket = io('wss://stream.binance.com:9443/ws');
 
@@ -88,14 +88,20 @@ export const Body = () => {
         </thead>
         <tbody>
           {marketData.map(data => {
-            const marketjson =  JSON.stringify(marketData);
+            const marketjson = JSON.stringify(marketData);
             localStorage.setItem("marketjson", marketjson);
             const coin = coins.find(i => i.symbol === data.symbol);
             const coinId = coin ? coin.id : null;
+            const symbol = data.symbol.toUpperCase();
+            const imageUrl = `https://assets.coincap.io/assets/icons/${symbol.toLowerCase()}@2x.png`;
             return (
               <tr className='border-b-2 border-gray-50'>
                 <td className='py-4 pl-4 text-center'>
-                  <img src={`https://assets.coincap.io/assets/icons/${data.symbol.toLowerCase()}@2x.png`} width={30} height={30} />
+                  {cryptoIcons[symbol] ? (
+                    <img src={cryptoIcons[symbol]} alt={symbol} width={30} height={30} />
+                  ) : (
+                    <img src={imageUrl} width={30} height={30} alt={symbol} />
+                  )}
                 </td>
                 <td className='px-0 py-4 text-center'>
                   <Link to={`/market/${coinId}`} className="transition duration-300 ease-in-out hover:font-bold hover:text-purple-800 hover:text-4xl">{data.symbol.toUpperCase()}</Link>
