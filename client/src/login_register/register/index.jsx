@@ -65,7 +65,7 @@ export const Signup = () => {
 									onChange={handleChange}
 									value={data.firstName}
 									required
-									className="py-2 px-2 rounded-lg my-2"
+									className="py-2 px-2 rounded-lg my-2 text-black"
 								/>
 							</Col>
 							<Col>
@@ -76,7 +76,7 @@ export const Signup = () => {
 									onChange={handleChange}
 									value={data.lastName}
 									required
-									className="py-2 px-2 rounded-lg my-2"
+									className="py-2 px-2 rounded-lg my-2 text-black"
 								/>
 							</Col>
 						</Row>
@@ -89,7 +89,7 @@ export const Signup = () => {
 									onChange={handleChange}
 									value={data.email}
 									required
-									className="py-2 px-2 rounded-lg my-2"
+									className="py-2 px-2 rounded-lg my-2 text-black"
 								/>
 							</Col>
 							<Col>
@@ -100,7 +100,7 @@ export const Signup = () => {
 									onChange={handleChange}
 									value={data.phoneno}
 									required
-									className="py-2 px-2 rounded-lg my-2"
+									className="py-2 px-2 rounded-lg my-2 text-black"
 								/>
 							</Col>
 						</Row>
@@ -113,7 +113,7 @@ export const Signup = () => {
 									onChange={handleChange}
 									value={data.address}
 									required
-									className="py-2 px-2 rounded-lg my-2 w-[420px]"
+									className="py-2 px-2 rounded-lg my-2 w-[420px] text-black"
 								/>
 							</Col>
 						</Row>
@@ -126,7 +126,7 @@ export const Signup = () => {
 									onChange={handleChange}
 									value={data.pincode}
 									required
-									className="py-2 px-2 rounded-lg my-2"
+									className="py-2 px-2 rounded-lg my-2 text-black"
 								/>
 							</Col>
 							<Col>
@@ -137,7 +137,7 @@ export const Signup = () => {
 									onChange={handleChange}
 									value={data.country}
 									required
-									className="py-2 px-2 rounded-lg my-2"
+									className="py-2 px-2 rounded-lg my-2 text-black"
 								/>
 							</Col>
 						</Row>
@@ -150,7 +150,7 @@ export const Signup = () => {
 								onChange={handleChange}
 								value={data.password}
 								required
-								className="py-2 px-2 rounded-lg my-2 w-[420px]"
+								className="py-2 px-2 rounded-lg my-2 w-[420px] text-black"
 							/>
 							<button
 								type="button"
